@@ -24,8 +24,7 @@
       <Value Profile="(Default)">shadow-program.co.de</Value>
     </Setting>
     <Setting Name="LastFile" Type="System.String" Scope="User">
-      <Value Profile="(Default)">
-    </Value>
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>
