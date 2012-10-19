@@ -8,6 +8,7 @@ namespace Teeworlds_Config_Creator
 {
 	public partial class Updater : Form
 	{
+        string NewFileName;
 		public Updater()
 		{
 			InitializeComponent();
@@ -79,7 +80,8 @@ namespace Teeworlds_Config_Creator
 				StreamReader reader = new StreamReader(stream);
 				string Version = reader.ReadLine();
 				Version = reader.ReadLine();
-				Download.DownloadFileAsync(new Uri(@"http://" + Properties.Settings.Default.UpdateServer + "/TeeworldsConfigCreator.exe"), "TCC - V" + Version + ".exe");
+                NewFileName = "TCC - V" + Version + ".exe";
+                Download.DownloadFileAsync(new Uri(@"http://" + Properties.Settings.Default.UpdateServer + "/TeeworldsConfigCreator.exe"), NewFileName);
 				Download.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
 				Download.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
 			}
@@ -101,13 +103,15 @@ namespace Teeworlds_Config_Creator
 			if (Properties.Settings.Default.Lang == "DE")
 			{
 				startUp.Text = "Herunterladen abgeschlossen";
-				MessageBox.Show("Bitte starten sie die neue .exe und löschen sie die alte!", "Erfolgreich aktualisiert!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 			else if (Properties.Settings.Default.Lang == "EN")
 			{
 				startUp.Text = "Download complete";
-				MessageBox.Show("Please start the new .exe and delete the old!", "Update succesfully!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
+
+            System.Diagnostics.Process.Start(NewFileName);
+            System.Threading.Thread.Sleep(1000);
+            Application.Exit();
 		}
 		
 		void UpdaterShown(object sender, EventArgs e)
