@@ -118,5 +118,17 @@ namespace Teeworlds_Config_Creator.Properties {
                 this["LastFile"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("teeworlds_srv.exe")]
+        public string ServerEXE {
+            get {
+                return ((string)(this["ServerEXE"]));
+            }
+            set {
+                this["ServerEXE"] = value;
+            }
+        }
     }
 }

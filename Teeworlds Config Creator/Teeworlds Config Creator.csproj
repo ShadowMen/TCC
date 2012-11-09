@@ -157,9 +157,10 @@
     <Compile Include="AboutBox1.Designer.cs">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Einstellungen.Designer1.cs">
-      <DependentUpon>Einstellungen.resx</DependentUpon>
+    <Compile Include="Einstellungen1.Designer.cs">
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Einstellungen.resx</DependentUpon>
     </Compile>
     <Compile Include="Maprotation.cs">
       <SubType>Form</SubType>
@@ -243,7 +244,7 @@
     <EmbeddedResource Include="Einstellungen.resx">
       <DependentUpon>Einstellungen.cs</DependentUpon>
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Einstellungen.Designer1.cs</LastGenOutput>
+      <LastGenOutput>Einstellungen1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -290,13 +291,11 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Teeworlds Confing Creator2.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\TCC.ico" />
     <None Include="Resources\lupe.gif" />
     <None Include="Resources\1335376864_config_creator_1.png" />
     <None Include="Resources\1335376880_config_creator_2.png" />
+    <None Include="Resources\teeworlds-1.png" />
     <Content Include="TCC.ico" />
     <None Include="Resources\search.png" />
     <None Include="Resources\DE.png" />

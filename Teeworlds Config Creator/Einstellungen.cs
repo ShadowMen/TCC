@@ -16,7 +16,8 @@ namespace Teeworlds_Config_Creator
         {
             CheckUpdate.Checked = Properties.Settings.Default.CheckForUpdatesAtStartUp;
             TWPfad.Text = Properties.Settings.Default.TWFolder;
-            folderBrowserDialog1.SelectedPath = TWPfad.Text;
+            TWServerFile.Text = Properties.Settings.Default.ServerEXE;
+            TWfolderSearch.SelectedPath = TWPfad.Text;
             OpenLastFile.Checked = Properties.Settings.Default.OpenLastFile;
             OpenAppdata.Checked = Properties.Settings.Default.LoadAppdataMaps;
             if(Properties.Settings.Default.UpdateServer == "shadow-program.co.de") UpSerList.SelectedIndex = 0;
@@ -29,7 +30,8 @@ namespace Teeworlds_Config_Creator
                 OpenAppdata.Text = "Maps auch aus dem Appdata Ordner laden.";
                 label1.Text = "Teeworlds Pfad:";
                 Cancle.Text = "Abbrechen";
-                folderBrowserDialog1.Description = "Deinen Teeworlds Ordner finden";
+                TWfolderSearch.Description = "Deinen Teeworlds Ordner finden";
+                TWexeSearch.Title = "Wähle die Teeworlds Server Datei aus";
             }
             if (Properties.Settings.Default.Lang == "EN")
             {
@@ -39,7 +41,8 @@ namespace Teeworlds_Config_Creator
                 OpenAppdata.Text = "Load Maps from Appdata too.";
                 label1.Text = "Teeworlds Path:";
                 Cancle.Text = "Cancle";
-                folderBrowserDialog1.Description = "Find your Teeworlds folder";
+                TWfolderSearch.Description = "Find your Teeworlds folder";
+                TWexeSearch.Title = "Select Teeworlds Server File";
             }
         }
 
@@ -47,6 +50,7 @@ namespace Teeworlds_Config_Creator
         {
             Properties.Settings.Default.CheckForUpdatesAtStartUp = CheckUpdate.Checked;
             Properties.Settings.Default.TWFolder = TWPfad.Text;
+            Properties.Settings.Default.ServerEXE = TWServerFile.Text;
             Properties.Settings.Default.OpenLastFile = OpenLastFile.Checked;
             Properties.Settings.Default.LoadAppdataMaps = OpenAppdata.Checked;
             if(UpSerList.SelectedIndex == 0) Properties.Settings.Default.UpdateServer = "shadow-program.co.de";
@@ -62,8 +66,15 @@ namespace Teeworlds_Config_Creator
 
         private void FolderSearch_Click(object sender, EventArgs e)
         {
-            folderBrowserDialog1.ShowDialog();
-            TWPfad.Text = folderBrowserDialog1.SelectedPath;
+            TWfolderSearch.ShowDialog();
+            TWPfad.Text = TWfolderSearch.SelectedPath;
+        }
+
+        private void SearchExe_Click(object sender, EventArgs e)
+        {
+            TWexeSearch.InitialDirectory = TWPfad.Text;
+            TWexeSearch.ShowDialog();
+            TWServerFile.Text = TWexeSearch.SafeFileName;
         }
     }
 }

@@ -28,6 +28,16 @@ namespace Teeworlds_Config_Creator
         {
             lang = Properties.Settings.Default.Lang;
             ChangeLang(lang);
+            if (lang == "DE")
+            {
+                deutschToolStripMenuItem.Checked = true;
+                englischToolStripMenuItem.Checked = false;
+            }
+            else
+            {
+                deutschToolStripMenuItem.Checked = false;
+                englischToolStripMenuItem.Checked = true;
+            }
             toolTip1.Active = Properties.Settings.Default.HelpActive;
             hilfeToolStripMenuItem.Checked = toolTip1.Active;
             VoteForm.toolTip1.Active = Properties.Settings.Default.HelpActive;
@@ -64,16 +74,8 @@ namespace Teeworlds_Config_Creator
 
         private void hilfeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!toolTip1.Active)
-            {
-                toolTip1.Active = true;
-                VoteForm.toolTip1.Active = true;
-            }
-            else if (toolTip1.Active)
-            {
-                toolTip1.Active = false;
-                VoteForm.toolTip1.Active = false;
-            }
+            toolTip1.Active = hilfeToolStripMenuItem.Checked;
+            VoteForm.toolTip1.Active = hilfeToolStripMenuItem.Checked;
         }
 
         private void checkBox5_CheckedChanged(object sender, EventArgs e)
@@ -987,8 +989,7 @@ namespace Teeworlds_Config_Creator
         {
             if (s == "DE")
             {
-                deutschToolStripMenuItem.Checked = true;
-                englischToolStripMenuItem.Checked = false;
+                Properties.Settings.Default.Lang = "DE";
                 //MainForm
                 dateiToolStripMenuItem.Text = "Datei";
                 öffnenToolStripMenuItem.Text = "Öffnen";
@@ -998,6 +999,7 @@ namespace Teeworlds_Config_Creator
                 saveFileDialog1.Title = "Speichern";
                 beendenToolStripMenuItem.Text = "Beenden";
                 startDateiToolStripMenuItem.Text = "\"Start-Skript\"-Datei erstellen";
+                startServerToolStripMenuItem.Text = "Teeworlds Server starten.";
                 infoÜberToolStripMenuItem.Text = "Info Über";
                 hilfeToolStripMenuItem.Text = "Hilfe";
                 UpdaterToolStripMenuItem.Text = "Auf Aktualisierung überprüfen";
@@ -1234,8 +1236,7 @@ namespace Teeworlds_Config_Creator
             }
             else if (s == "EN")
             {
-                deutschToolStripMenuItem.Checked = false;
-                englischToolStripMenuItem.Checked = true;
+                Properties.Settings.Default.Lang = "EN";
                 //MainForm
                 dateiToolStripMenuItem.Text = "File";
                 öffnenToolStripMenuItem.Text = "Open";
@@ -1245,6 +1246,7 @@ namespace Teeworlds_Config_Creator
                 speichernunterStripMenuItem1.Text = "Save File under...";
                 beendenToolStripMenuItem.Text = "Exit";
                 startDateiToolStripMenuItem.Text = "Create \"Startup Script\" file";
+                startServerToolStripMenuItem.Text = "Start Teeworlds server";
                 infoÜberToolStripMenuItem.Text = "About";
                 hilfeToolStripMenuItem.Text = "Help";
                 UpdaterToolStripMenuItem.Text = "Check for Updates";
@@ -1483,40 +1485,18 @@ namespace Teeworlds_Config_Creator
 
         private void deutschToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (englischToolStripMenuItem.Checked)
-            {
-                deutschToolStripMenuItem.Checked = true;
-                englischToolStripMenuItem.Checked = false;
-                ChangeLang("DE");
-                lang = "DE";
-                saveSetting();
-            }
-            else
-            {
-                deutschToolStripMenuItem.Checked = true;
-                ChangeLang("DE");
-                lang = "DE";
-                saveSetting();
-            }
+            englischToolStripMenuItem.Checked = !deutschToolStripMenuItem.Checked;
+            deutschToolStripMenuItem.Checked = !englischToolStripMenuItem.Checked;
+            lang = "DE";
+            ChangeLang(lang);
         }
 
         private void englischToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (deutschToolStripMenuItem.Checked)
-            {
-                englischToolStripMenuItem.Checked = true;
-                deutschToolStripMenuItem.Checked = false;
-                ChangeLang("EN");
-                lang = "EN";
-                saveSetting();
-            }
-            else
-            {
-                englischToolStripMenuItem.Checked = true;
-                ChangeLang("EN");
-                lang = "EN";
-                saveSetting();
-            }
+            deutschToolStripMenuItem.Checked = !englischToolStripMenuItem.Checked;
+            englischToolStripMenuItem.Checked = !deutschToolStripMenuItem.Checked;
+            lang = "EN";
+            ChangeLang(lang);
         }
 
         private void UpdaterToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1697,6 +1677,18 @@ namespace Teeworlds_Config_Creator
         		groupBox26.Enabled = false;
         		groupBox6.Enabled = false;
         	}
+        }
+
+        private void startServerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string Serverfile = Properties.Settings.Default.TWFolder + "\\" + Properties.Settings.Default.ServerEXE;
+            string Serverparameter = "-f " + CurrentFile;
+            if (File.Exists(Serverfile)) System.Diagnostics.Process.Start(Serverfile, Serverparameter);
+            else
+            {
+                if (Properties.Settings.Default.Lang == "DE") MessageBox.Show("Server-Datei nicht vorhanden!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else MessageBox.Show("Server-file doesn´t exist!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
