@@ -109,8 +109,7 @@ namespace Teeworlds_Config_Creator
 				startUp.Text = "Download complete";
 			}
 
-            System.Diagnostics.Process.Start(NewFileName);
-            System.Threading.Thread.Sleep(1000);
+            System.Diagnostics.Process.Start(NewFileName, "-delete " + Application.ExecutablePath);
             Application.Exit();
 		}
 		
