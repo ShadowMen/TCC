@@ -29,6 +29,7 @@ namespace Teeworlds_Config_Creator
                 CheckUpdate.Text = "Beim Start auf Updates überprüfen.";
                 OpenAppdata.Text = "Maps auch aus dem Appdata Ordner laden.";
                 label1.Text = "Teeworlds Pfad:";
+                label3.Text = "Teeworlds Server Datei: ";
                 Cancle.Text = "Abbrechen";
                 TWfolderSearch.Description = "Deinen Teeworlds Ordner finden";
                 TWexeSearch.Title = "Wähle die Teeworlds Server Datei aus";
@@ -40,6 +41,7 @@ namespace Teeworlds_Config_Creator
                 CheckUpdate.Text = "Check for Updates on Startup.";
                 OpenAppdata.Text = "Load Maps from Appdata too.";
                 label1.Text = "Teeworlds Path:";
+                label3.Text = "Teeworlds server file: ";
                 Cancle.Text = "Cancle";
                 TWfolderSearch.Description = "Find your Teeworlds folder";
                 TWexeSearch.Title = "Select Teeworlds Server File";
