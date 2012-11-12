@@ -1690,5 +1690,16 @@ namespace Teeworlds_Config_Creator
                 else MessageBox.Show("Server-file doesn´t exist!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void startTeeworldsClientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string TeeworldsClientEXE = Properties.Settings.Default.TWFolder + "\\teeworlds.exe";
+            if (File.Exists(TeeworldsClientEXE)) System.Diagnostics.Process.Start(TeeworldsClientEXE);
+            else
+            {
+                if (Properties.Settings.Default.Lang == "DE") MessageBox.Show("Teeworlds Client ist nicht vorhanden!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else MessageBox.Show("Teeworlds client doesn´t exist!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

@@ -32,10 +32,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TCC));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.öffnenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.speichernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.speichernunterStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.startDateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.startServerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.beendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.spracheToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deutschToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.englischToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.homepageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hilfeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.infoÜberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UpdaterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.einstellungenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -77,45 +86,64 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.Tuning = new System.Windows.Forms.TabPage();
+            this.TuneImage = new System.Windows.Forms.PictureBox();
             this.groupBox17 = new System.Windows.Forms.GroupBox();
+            this.renew30 = new System.Windows.Forms.Button();
             this.LaserDmg = new System.Windows.Forms.NumericUpDown();
             this.label49 = new System.Windows.Forms.Label();
+            this.renew29 = new System.Windows.Forms.Button();
             this.LaserBN = new System.Windows.Forms.NumericUpDown();
             this.label48 = new System.Windows.Forms.Label();
+            this.renew28 = new System.Windows.Forms.Button();
             this.LaserBD = new System.Windows.Forms.NumericUpDown();
             this.label47 = new System.Windows.Forms.Label();
+            this.renew27 = new System.Windows.Forms.Button();
             this.LaserR = new System.Windows.Forms.NumericUpDown();
             this.label46 = new System.Windows.Forms.Label();
             this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.renew26 = new System.Windows.Forms.Button();
             this.GrenadeL = new System.Windows.Forms.NumericUpDown();
             this.label45 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
+            this.renew25 = new System.Windows.Forms.Button();
             this.GrenadeS = new System.Windows.Forms.NumericUpDown();
+            this.renew24 = new System.Windows.Forms.Button();
             this.GrenadeC = new System.Windows.Forms.NumericUpDown();
             this.label43 = new System.Windows.Forms.Label();
             this.groupBox15 = new System.Windows.Forms.GroupBox();
             this.label42 = new System.Windows.Forms.Label();
+            this.renew22 = new System.Windows.Forms.Button();
             this.ShotgunDiff = new System.Windows.Forms.NumericUpDown();
+            this.renew23 = new System.Windows.Forms.Button();
             this.ShotgunL = new System.Windows.Forms.NumericUpDown();
             this.label41 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
+            this.renew21 = new System.Windows.Forms.Button();
             this.ShotgunS = new System.Windows.Forms.NumericUpDown();
+            this.renew20 = new System.Windows.Forms.Button();
             this.ShotgunC = new System.Windows.Forms.NumericUpDown();
             this.label39 = new System.Windows.Forms.Label();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.renew19 = new System.Windows.Forms.Button();
             this.GunL = new System.Windows.Forms.NumericUpDown();
             this.label38 = new System.Windows.Forms.Label();
+            this.renew18 = new System.Windows.Forms.Button();
             this.GunS = new System.Windows.Forms.NumericUpDown();
             this.label37 = new System.Windows.Forms.Label();
+            this.renew17 = new System.Windows.Forms.Button();
             this.GunC = new System.Windows.Forms.NumericUpDown();
             this.label36 = new System.Windows.Forms.Label();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.renew16 = new System.Windows.Forms.Button();
             this.VrC = new System.Windows.Forms.NumericUpDown();
             this.label28 = new System.Windows.Forms.Label();
+            this.renew14 = new System.Windows.Forms.Button();
+            this.renew15 = new System.Windows.Forms.Button();
             this.VrR = new System.Windows.Forms.NumericUpDown();
             this.VrS = new System.Windows.Forms.NumericUpDown();
             this.label29 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
+            this.renew13 = new System.Windows.Forms.Button();
             this.Hooking = new System.Windows.Forms.CheckBox();
             this.label26 = new System.Windows.Forms.Label();
             this.gravity = new System.Windows.Forms.NumericUpDown();
@@ -126,7 +154,11 @@
             this.label24 = new System.Windows.Forms.Label();
             this.HdA = new System.Windows.Forms.NumericUpDown();
             this.HdS = new System.Windows.Forms.NumericUpDown();
+            this.renew12 = new System.Windows.Forms.Button();
+            this.renew11 = new System.Windows.Forms.Button();
+            this.renew10 = new System.Windows.Forms.Button();
             this.HfS = new System.Windows.Forms.NumericUpDown();
+            this.renew9 = new System.Windows.Forms.Button();
             this.label25 = new System.Windows.Forms.Label();
             this.HL = new System.Windows.Forms.NumericUpDown();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
@@ -135,16 +167,24 @@
             this.label19 = new System.Windows.Forms.Label();
             this.AcA = new System.Windows.Forms.NumericUpDown();
             this.Af = new System.Windows.Forms.NumericUpDown();
+            this.renew8 = new System.Windows.Forms.Button();
+            this.renew7 = new System.Windows.Forms.Button();
+            this.renew6 = new System.Windows.Forms.Button();
             this.AcS = new System.Windows.Forms.NumericUpDown();
+            this.renew5 = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.AjI = new System.Windows.Forms.NumericUpDown();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.label17 = new System.Windows.Forms.Label();
+            this.renew4 = new System.Windows.Forms.Button();
             this.GjI = new System.Windows.Forms.NumericUpDown();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.renew3 = new System.Windows.Forms.Button();
+            this.renew2 = new System.Windows.Forms.Button();
             this.Gf = new System.Windows.Forms.NumericUpDown();
             this.GcA = new System.Windows.Forms.NumericUpDown();
+            this.renew1 = new System.Windows.Forms.Button();
             this.GcS = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
             this.useTune = new System.Windows.Forms.CheckBox();
@@ -293,6 +333,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.MapRefresh = new System.Windows.Forms.Button();
+            this.MapRotAdd = new System.Windows.Forms.Button();
             this.Map = new System.Windows.Forms.ComboBox();
             this.label30 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -367,48 +409,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.ExtraLines = new System.Windows.Forms.TextBox();
             this.XtraLinesDescripton = new System.Windows.Forms.Label();
-            this.MapRefresh = new System.Windows.Forms.Button();
-            this.MapRotAdd = new System.Windows.Forms.Button();
-            this.TuneImage = new System.Windows.Forms.PictureBox();
-            this.renew30 = new System.Windows.Forms.Button();
-            this.renew29 = new System.Windows.Forms.Button();
-            this.renew28 = new System.Windows.Forms.Button();
-            this.renew27 = new System.Windows.Forms.Button();
-            this.renew26 = new System.Windows.Forms.Button();
-            this.renew25 = new System.Windows.Forms.Button();
-            this.renew24 = new System.Windows.Forms.Button();
-            this.renew22 = new System.Windows.Forms.Button();
-            this.renew23 = new System.Windows.Forms.Button();
-            this.renew21 = new System.Windows.Forms.Button();
-            this.renew20 = new System.Windows.Forms.Button();
-            this.renew19 = new System.Windows.Forms.Button();
-            this.renew18 = new System.Windows.Forms.Button();
-            this.renew17 = new System.Windows.Forms.Button();
-            this.renew16 = new System.Windows.Forms.Button();
-            this.renew14 = new System.Windows.Forms.Button();
-            this.renew15 = new System.Windows.Forms.Button();
-            this.renew13 = new System.Windows.Forms.Button();
-            this.renew12 = new System.Windows.Forms.Button();
-            this.renew11 = new System.Windows.Forms.Button();
-            this.renew10 = new System.Windows.Forms.Button();
-            this.renew9 = new System.Windows.Forms.Button();
-            this.renew8 = new System.Windows.Forms.Button();
-            this.renew7 = new System.Windows.Forms.Button();
-            this.renew6 = new System.Windows.Forms.Button();
-            this.renew5 = new System.Windows.Forms.Button();
-            this.renew4 = new System.Windows.Forms.Button();
-            this.renew3 = new System.Windows.Forms.Button();
-            this.renew2 = new System.Windows.Forms.Button();
-            this.renew1 = new System.Windows.Forms.Button();
-            this.öffnenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.speichernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.speichernunterStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.startServerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deutschToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.englischToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.homepageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hilfeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.infoÜberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.startTeeworldsClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WarmupTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TeBaTi)).BeginInit();
@@ -424,6 +425,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.MaxClientspIP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Port)).BeginInit();
             this.Tuning.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TuneImage)).BeginInit();
             this.groupBox17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LaserDmg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LaserBN)).BeginInit();
@@ -538,7 +540,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.RaceReSlots)).BeginInit();
             this.XtraLines.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TuneImage)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -563,6 +564,7 @@
             this.speichernToolStripMenuItem,
             this.speichernunterStripMenuItem1,
             this.startDateiToolStripMenuItem,
+            this.startTeeworldsClientToolStripMenuItem,
             this.startServerToolStripMenuItem,
             this.beendenToolStripMenuItem});
             this.dateiToolStripMenuItem.Name = "dateiToolStripMenuItem";
@@ -570,12 +572,49 @@
             this.dateiToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.dateiToolStripMenuItem.Text = "Datei";
             // 
+            // öffnenToolStripMenuItem
+            // 
+            this.öffnenToolStripMenuItem.Image = global::Teeworlds_Config_Creator.Properties.Resources.Öffnen;
+            this.öffnenToolStripMenuItem.Name = "öffnenToolStripMenuItem";
+            this.öffnenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.öffnenToolStripMenuItem.Size = new System.Drawing.Size(291, 22);
+            this.öffnenToolStripMenuItem.Text = "Öffnen";
+            this.öffnenToolStripMenuItem.Click += new System.EventHandler(this.öffnenToolStripMenuItem_Click);
+            // 
+            // speichernToolStripMenuItem
+            // 
+            this.speichernToolStripMenuItem.Image = global::Teeworlds_Config_Creator.Properties.Resources.Speichern;
+            this.speichernToolStripMenuItem.Name = "speichernToolStripMenuItem";
+            this.speichernToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.speichernToolStripMenuItem.Size = new System.Drawing.Size(291, 22);
+            this.speichernToolStripMenuItem.Text = "Speichern";
+            this.speichernToolStripMenuItem.Click += new System.EventHandler(this.speichernToolStripMenuItem_Click);
+            // 
+            // speichernunterStripMenuItem1
+            // 
+            this.speichernunterStripMenuItem1.Image = global::Teeworlds_Config_Creator.Properties.Resources.Speichern;
+            this.speichernunterStripMenuItem1.Name = "speichernunterStripMenuItem1";
+            this.speichernunterStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.S)));
+            this.speichernunterStripMenuItem1.Size = new System.Drawing.Size(291, 22);
+            this.speichernunterStripMenuItem1.Text = "Speichern unter...";
+            this.speichernunterStripMenuItem1.Click += new System.EventHandler(this.speichernunterStripMenuItem1_Click);
+            // 
             // startDateiToolStripMenuItem
             // 
             this.startDateiToolStripMenuItem.Name = "startDateiToolStripMenuItem";
             this.startDateiToolStripMenuItem.Size = new System.Drawing.Size(291, 22);
             this.startDateiToolStripMenuItem.Text = "\"Start-Datei\" erstellen";
             this.startDateiToolStripMenuItem.Click += new System.EventHandler(this.startDateiToolStripMenuItem_Click);
+            // 
+            // startServerToolStripMenuItem
+            // 
+            this.startServerToolStripMenuItem.Image = global::Teeworlds_Config_Creator.Properties.Resources.teeworlds_1;
+            this.startServerToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.White;
+            this.startServerToolStripMenuItem.Name = "startServerToolStripMenuItem";
+            this.startServerToolStripMenuItem.Size = new System.Drawing.Size(291, 22);
+            this.startServerToolStripMenuItem.Text = "Start Teeworlds Server";
+            this.startServerToolStripMenuItem.Click += new System.EventHandler(this.startServerToolStripMenuItem_Click);
             // 
             // beendenToolStripMenuItem
             // 
@@ -594,6 +633,26 @@
             this.spracheToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.spracheToolStripMenuItem.Text = "Sprache";
             // 
+            // deutschToolStripMenuItem
+            // 
+            this.deutschToolStripMenuItem.CheckOnClick = true;
+            this.deutschToolStripMenuItem.Image = global::Teeworlds_Config_Creator.Properties.Resources.DE;
+            this.deutschToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.deutschToolStripMenuItem.Name = "deutschToolStripMenuItem";
+            this.deutschToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.deutschToolStripMenuItem.Text = "Deutsch";
+            this.deutschToolStripMenuItem.Click += new System.EventHandler(this.deutschToolStripMenuItem_Click);
+            // 
+            // englischToolStripMenuItem
+            // 
+            this.englischToolStripMenuItem.CheckOnClick = true;
+            this.englischToolStripMenuItem.Image = global::Teeworlds_Config_Creator.Properties.Resources.US;
+            this.englischToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.englischToolStripMenuItem.Name = "englischToolStripMenuItem";
+            this.englischToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.englischToolStripMenuItem.Text = "Englisch";
+            this.englischToolStripMenuItem.Click += new System.EventHandler(this.englischToolStripMenuItem_Click);
+            // 
             // infoToolStripMenuItem
             // 
             this.infoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -604,6 +663,33 @@
             this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
             this.infoToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
             this.infoToolStripMenuItem.Text = "Info";
+            // 
+            // homepageToolStripMenuItem
+            // 
+            this.homepageToolStripMenuItem.Image = global::Teeworlds_Config_Creator.Properties.Resources.Homepage;
+            this.homepageToolStripMenuItem.Name = "homepageToolStripMenuItem";
+            this.homepageToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.homepageToolStripMenuItem.Text = "Homepage";
+            this.homepageToolStripMenuItem.Click += new System.EventHandler(this.homepageToolStripMenuItem_Click);
+            // 
+            // hilfeToolStripMenuItem
+            // 
+            this.hilfeToolStripMenuItem.CheckOnClick = true;
+            this.hilfeToolStripMenuItem.Image = global::Teeworlds_Config_Creator.Properties.Resources.Hilfe;
+            this.hilfeToolStripMenuItem.Name = "hilfeToolStripMenuItem";
+            this.hilfeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.H)));
+            this.hilfeToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.hilfeToolStripMenuItem.Text = "Hilfe";
+            this.hilfeToolStripMenuItem.Click += new System.EventHandler(this.hilfeToolStripMenuItem_Click);
+            // 
+            // infoÜberToolStripMenuItem
+            // 
+            this.infoÜberToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("infoÜberToolStripMenuItem.Image")));
+            this.infoÜberToolStripMenuItem.Name = "infoÜberToolStripMenuItem";
+            this.infoÜberToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.infoÜberToolStripMenuItem.Text = "Info Über";
+            this.infoÜberToolStripMenuItem.Click += new System.EventHandler(this.infoÜberToolStripMenuItem_Click);
             // 
             // UpdaterToolStripMenuItem
             // 
@@ -1159,6 +1245,19 @@
             this.Tuning.TabIndex = 3;
             this.Tuning.Text = "Server Tuning";
             // 
+            // TuneImage
+            // 
+            this.TuneImage.BackColor = System.Drawing.Color.Transparent;
+            this.TuneImage.Cursor = System.Windows.Forms.Cursors.Default;
+            this.TuneImage.Image = global::Teeworlds_Config_Creator.Properties.Resources._1335376864_config_creator_1;
+            this.TuneImage.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.TuneImage.Location = new System.Drawing.Point(504, 199);
+            this.TuneImage.Name = "TuneImage";
+            this.TuneImage.Size = new System.Drawing.Size(445, 212);
+            this.TuneImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.TuneImage.TabIndex = 9;
+            this.TuneImage.TabStop = false;
+            // 
             // groupBox17
             // 
             this.groupBox17.BackColor = System.Drawing.Color.Transparent;
@@ -1181,6 +1280,18 @@
             this.groupBox17.TabIndex = 8;
             this.groupBox17.TabStop = false;
             this.groupBox17.Text = "Laser Tunes";
+            // 
+            // renew30
+            // 
+            this.renew30.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.renew30.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.renew30.Location = new System.Drawing.Point(205, 97);
+            this.renew30.Name = "renew30";
+            this.renew30.Size = new System.Drawing.Size(28, 20);
+            this.renew30.TabIndex = 0;
+            this.renew30.TabStop = false;
+            this.renew30.UseVisualStyleBackColor = true;
+            this.renew30.Click += new System.EventHandler(this.renew30_Click);
             // 
             // LaserDmg
             // 
@@ -1215,6 +1326,18 @@
             this.label49.TabIndex = 55;
             this.label49.Text = "Laser Damage";
             // 
+            // renew29
+            // 
+            this.renew29.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.renew29.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.renew29.Location = new System.Drawing.Point(205, 71);
+            this.renew29.Name = "renew29";
+            this.renew29.Size = new System.Drawing.Size(28, 20);
+            this.renew29.TabIndex = 0;
+            this.renew29.TabStop = false;
+            this.renew29.UseVisualStyleBackColor = true;
+            this.renew29.Click += new System.EventHandler(this.renew29_Click);
+            // 
             // LaserBN
             // 
             this.LaserBN.DecimalPlaces = 2;
@@ -1242,6 +1365,18 @@
             this.label48.Size = new System.Drawing.Size(101, 13);
             this.label48.TabIndex = 53;
             this.label48.Text = "Laser Bounce Num.";
+            // 
+            // renew28
+            // 
+            this.renew28.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.renew28.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.renew28.Location = new System.Drawing.Point(205, 45);
+            this.renew28.Name = "renew28";
+            this.renew28.Size = new System.Drawing.Size(28, 20);
+            this.renew28.TabIndex = 0;
+            this.renew28.TabStop = false;
+            this.renew28.UseVisualStyleBackColor = true;
+            this.renew28.Click += new System.EventHandler(this.renew28_Click);
             // 
             // LaserBD
             // 
@@ -1275,6 +1410,18 @@
             this.label47.Size = new System.Drawing.Size(103, 13);
             this.label47.TabIndex = 51;
             this.label47.Text = "Laser Bounce Delay";
+            // 
+            // renew27
+            // 
+            this.renew27.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.renew27.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.renew27.Location = new System.Drawing.Point(205, 19);
+            this.renew27.Name = "renew27";
+            this.renew27.Size = new System.Drawing.Size(28, 20);
+            this.renew27.TabIndex = 0;
+            this.renew27.TabStop = false;
+            this.renew27.UseVisualStyleBackColor = true;
+            this.renew27.Click += new System.EventHandler(this.renew27_Click);
             // 
             // LaserR
             // 
@@ -1329,6 +1476,18 @@
             this.groupBox16.TabStop = false;
             this.groupBox16.Text = "Grenade Tunes";
             // 
+            // renew26
+            // 
+            this.renew26.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.renew26.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.renew26.Location = new System.Drawing.Point(205, 71);
+            this.renew26.Name = "renew26";
+            this.renew26.Size = new System.Drawing.Size(28, 20);
+            this.renew26.TabIndex = 0;
+            this.renew26.TabStop = false;
+            this.renew26.UseVisualStyleBackColor = true;
+            this.renew26.Click += new System.EventHandler(this.renew26_Click);
+            // 
             // GrenadeL
             // 
             this.GrenadeL.DecimalPlaces = 2;
@@ -1372,6 +1531,18 @@
             this.label44.TabIndex = 36;
             this.label44.Text = "Grenade Speed";
             // 
+            // renew25
+            // 
+            this.renew25.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.renew25.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.renew25.Location = new System.Drawing.Point(205, 45);
+            this.renew25.Name = "renew25";
+            this.renew25.Size = new System.Drawing.Size(28, 20);
+            this.renew25.TabIndex = 0;
+            this.renew25.TabStop = false;
+            this.renew25.UseVisualStyleBackColor = true;
+            this.renew25.Click += new System.EventHandler(this.renew25_Click);
+            // 
             // GrenadeS
             // 
             this.GrenadeS.DecimalPlaces = 2;
@@ -1394,6 +1565,18 @@
             0,
             0,
             0});
+            // 
+            // renew24
+            // 
+            this.renew24.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.renew24.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.renew24.Location = new System.Drawing.Point(205, 19);
+            this.renew24.Name = "renew24";
+            this.renew24.Size = new System.Drawing.Size(28, 20);
+            this.renew24.TabIndex = 0;
+            this.renew24.TabStop = false;
+            this.renew24.UseVisualStyleBackColor = true;
+            this.renew24.Click += new System.EventHandler(this.renew24_Click);
             // 
             // GrenadeC
             // 
@@ -1466,6 +1649,18 @@
             this.label42.TabIndex = 45;
             this.label42.Text = "Shotgun Speed Diff.";
             // 
+            // renew22
+            // 
+            this.renew22.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.renew22.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.renew22.Location = new System.Drawing.Point(211, 71);
+            this.renew22.Name = "renew22";
+            this.renew22.Size = new System.Drawing.Size(28, 20);
+            this.renew22.TabIndex = 0;
+            this.renew22.TabStop = false;
+            this.renew22.UseVisualStyleBackColor = true;
+            this.renew22.Click += new System.EventHandler(this.renew22_Click);
+            // 
             // ShotgunDiff
             // 
             this.ShotgunDiff.DecimalPlaces = 2;
@@ -1488,6 +1683,18 @@
             0,
             0,
             65536});
+            // 
+            // renew23
+            // 
+            this.renew23.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.renew23.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.renew23.Location = new System.Drawing.Point(211, 97);
+            this.renew23.Name = "renew23";
+            this.renew23.Size = new System.Drawing.Size(28, 20);
+            this.renew23.TabIndex = 0;
+            this.renew23.TabStop = false;
+            this.renew23.UseVisualStyleBackColor = true;
+            this.renew23.Click += new System.EventHandler(this.renew23_Click);
             // 
             // ShotgunL
             // 
@@ -1532,6 +1739,18 @@
             this.label40.TabIndex = 43;
             this.label40.Text = "Shotgun Speed";
             // 
+            // renew21
+            // 
+            this.renew21.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.renew21.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.renew21.Location = new System.Drawing.Point(211, 45);
+            this.renew21.Name = "renew21";
+            this.renew21.Size = new System.Drawing.Size(28, 20);
+            this.renew21.TabIndex = 0;
+            this.renew21.TabStop = false;
+            this.renew21.UseVisualStyleBackColor = true;
+            this.renew21.Click += new System.EventHandler(this.renew21_Click);
+            // 
             // ShotgunS
             // 
             this.ShotgunS.DecimalPlaces = 2;
@@ -1554,6 +1773,18 @@
             0,
             0,
             0});
+            // 
+            // renew20
+            // 
+            this.renew20.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.renew20.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.renew20.Location = new System.Drawing.Point(211, 19);
+            this.renew20.Name = "renew20";
+            this.renew20.Size = new System.Drawing.Size(28, 20);
+            this.renew20.TabIndex = 0;
+            this.renew20.TabStop = false;
+            this.renew20.UseVisualStyleBackColor = true;
+            this.renew20.Click += new System.EventHandler(this.renew20_Click);
             // 
             // ShotgunC
             // 
@@ -1613,6 +1844,18 @@
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "Gun Tunes";
             // 
+            // renew19
+            // 
+            this.renew19.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.renew19.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.renew19.Location = new System.Drawing.Point(211, 71);
+            this.renew19.Name = "renew19";
+            this.renew19.Size = new System.Drawing.Size(28, 20);
+            this.renew19.TabIndex = 0;
+            this.renew19.TabStop = false;
+            this.renew19.UseVisualStyleBackColor = true;
+            this.renew19.Click += new System.EventHandler(this.renew19_Click);
+            // 
             // GunL
             // 
             this.GunL.DecimalPlaces = 2;
@@ -1646,6 +1889,18 @@
             this.label38.TabIndex = 32;
             this.label38.Text = "Gun Lifetime";
             // 
+            // renew18
+            // 
+            this.renew18.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.renew18.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.renew18.Location = new System.Drawing.Point(211, 45);
+            this.renew18.Name = "renew18";
+            this.renew18.Size = new System.Drawing.Size(28, 20);
+            this.renew18.TabIndex = 0;
+            this.renew18.TabStop = false;
+            this.renew18.UseVisualStyleBackColor = true;
+            this.renew18.Click += new System.EventHandler(this.renew18_Click);
+            // 
             // GunS
             // 
             this.GunS.DecimalPlaces = 2;
@@ -1678,6 +1933,18 @@
             this.label37.Size = new System.Drawing.Size(61, 13);
             this.label37.TabIndex = 30;
             this.label37.Text = "Gun Speed";
+            // 
+            // renew17
+            // 
+            this.renew17.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.renew17.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.renew17.Location = new System.Drawing.Point(211, 19);
+            this.renew17.Name = "renew17";
+            this.renew17.Size = new System.Drawing.Size(28, 20);
+            this.renew17.TabIndex = 0;
+            this.renew17.TabStop = false;
+            this.renew17.UseVisualStyleBackColor = true;
+            this.renew17.Click += new System.EventHandler(this.renew17_Click);
             // 
             // GunC
             // 
@@ -1742,6 +2009,18 @@
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "Physics";
             // 
+            // renew16
+            // 
+            this.renew16.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.renew16.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.renew16.Location = new System.Drawing.Point(204, 119);
+            this.renew16.Name = "renew16";
+            this.renew16.Size = new System.Drawing.Size(28, 20);
+            this.renew16.TabIndex = 0;
+            this.renew16.TabStop = false;
+            this.renew16.UseVisualStyleBackColor = true;
+            this.renew16.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // VrC
             // 
             this.VrC.DecimalPlaces = 2;
@@ -1779,6 +2058,30 @@
             this.label28.Size = new System.Drawing.Size(115, 13);
             this.label28.TabIndex = 26;
             this.label28.Text = "Velocity Ramp Curvate";
+            // 
+            // renew14
+            // 
+            this.renew14.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.renew14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.renew14.Location = new System.Drawing.Point(204, 67);
+            this.renew14.Name = "renew14";
+            this.renew14.Size = new System.Drawing.Size(28, 20);
+            this.renew14.TabIndex = 0;
+            this.renew14.TabStop = false;
+            this.renew14.UseVisualStyleBackColor = true;
+            this.renew14.Click += new System.EventHandler(this.renew14_Click);
+            // 
+            // renew15
+            // 
+            this.renew15.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.renew15.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.renew15.Location = new System.Drawing.Point(204, 93);
+            this.renew15.Name = "renew15";
+            this.renew15.Size = new System.Drawing.Size(28, 20);
+            this.renew15.TabIndex = 0;
+            this.renew15.TabStop = false;
+            this.renew15.UseVisualStyleBackColor = true;
+            this.renew15.Click += new System.EventHandler(this.renew15_Click);
             // 
             // VrR
             // 
@@ -1855,6 +2158,18 @@
             this.label27.Size = new System.Drawing.Size(100, 13);
             this.label27.TabIndex = 22;
             this.label27.Text = "Velocity Ramp Start";
+            // 
+            // renew13
+            // 
+            this.renew13.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.renew13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.renew13.Location = new System.Drawing.Point(204, 41);
+            this.renew13.Name = "renew13";
+            this.renew13.Size = new System.Drawing.Size(28, 20);
+            this.renew13.TabIndex = 0;
+            this.renew13.TabStop = false;
+            this.renew13.UseVisualStyleBackColor = true;
+            this.renew13.Click += new System.EventHandler(this.renew13_Click);
             // 
             // Hooking
             // 
@@ -2029,6 +2344,42 @@
             0,
             0});
             // 
+            // renew12
+            // 
+            this.renew12.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.renew12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.renew12.Location = new System.Drawing.Point(186, 97);
+            this.renew12.Name = "renew12";
+            this.renew12.Size = new System.Drawing.Size(28, 20);
+            this.renew12.TabIndex = 0;
+            this.renew12.TabStop = false;
+            this.renew12.UseVisualStyleBackColor = true;
+            this.renew12.Click += new System.EventHandler(this.renew12_Click);
+            // 
+            // renew11
+            // 
+            this.renew11.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.renew11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.renew11.Location = new System.Drawing.Point(186, 71);
+            this.renew11.Name = "renew11";
+            this.renew11.Size = new System.Drawing.Size(28, 20);
+            this.renew11.TabIndex = 0;
+            this.renew11.TabStop = false;
+            this.renew11.UseVisualStyleBackColor = true;
+            this.renew11.Click += new System.EventHandler(this.renew11_Click);
+            // 
+            // renew10
+            // 
+            this.renew10.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.renew10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.renew10.Location = new System.Drawing.Point(186, 45);
+            this.renew10.Name = "renew10";
+            this.renew10.Size = new System.Drawing.Size(28, 20);
+            this.renew10.TabIndex = 0;
+            this.renew10.TabStop = false;
+            this.renew10.UseVisualStyleBackColor = true;
+            this.renew10.Click += new System.EventHandler(this.renew10_Click);
+            // 
             // HfS
             // 
             this.HfS.DecimalPlaces = 2;
@@ -2056,6 +2407,18 @@
             0,
             0,
             0});
+            // 
+            // renew9
+            // 
+            this.renew9.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.renew9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.renew9.Location = new System.Drawing.Point(186, 19);
+            this.renew9.Name = "renew9";
+            this.renew9.Size = new System.Drawing.Size(28, 20);
+            this.renew9.TabIndex = 0;
+            this.renew9.TabStop = false;
+            this.renew9.UseVisualStyleBackColor = true;
+            this.renew9.Click += new System.EventHandler(this.renew9_Click);
             // 
             // label25
             // 
@@ -2204,6 +2567,42 @@
             0,
             131072});
             // 
+            // renew8
+            // 
+            this.renew8.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.renew8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.renew8.Location = new System.Drawing.Point(182, 97);
+            this.renew8.Name = "renew8";
+            this.renew8.Size = new System.Drawing.Size(28, 20);
+            this.renew8.TabIndex = 0;
+            this.renew8.TabStop = false;
+            this.renew8.UseVisualStyleBackColor = true;
+            this.renew8.Click += new System.EventHandler(this.renew8_Click);
+            // 
+            // renew7
+            // 
+            this.renew7.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.renew7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.renew7.Location = new System.Drawing.Point(182, 71);
+            this.renew7.Name = "renew7";
+            this.renew7.Size = new System.Drawing.Size(28, 20);
+            this.renew7.TabIndex = 0;
+            this.renew7.TabStop = false;
+            this.renew7.UseVisualStyleBackColor = true;
+            this.renew7.Click += new System.EventHandler(this.renew7_Click);
+            // 
+            // renew6
+            // 
+            this.renew6.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.renew6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.renew6.Location = new System.Drawing.Point(182, 45);
+            this.renew6.Name = "renew6";
+            this.renew6.Size = new System.Drawing.Size(28, 20);
+            this.renew6.TabIndex = 0;
+            this.renew6.TabStop = false;
+            this.renew6.UseVisualStyleBackColor = true;
+            this.renew6.Click += new System.EventHandler(this.renew6_Click);
+            // 
             // AcS
             // 
             this.AcS.DecimalPlaces = 2;
@@ -2231,6 +2630,18 @@
             0,
             0,
             0});
+            // 
+            // renew5
+            // 
+            this.renew5.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.renew5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.renew5.Location = new System.Drawing.Point(182, 19);
+            this.renew5.Name = "renew5";
+            this.renew5.Size = new System.Drawing.Size(28, 20);
+            this.renew5.TabIndex = 0;
+            this.renew5.TabStop = false;
+            this.renew5.UseVisualStyleBackColor = true;
+            this.renew5.Click += new System.EventHandler(this.renew5_Click);
             // 
             // label18
             // 
@@ -2303,6 +2714,18 @@
             this.label17.TabIndex = 6;
             this.label17.Text = "Ground Jump Impulse";
             // 
+            // renew4
+            // 
+            this.renew4.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.renew4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.renew4.Location = new System.Drawing.Point(211, 97);
+            this.renew4.Name = "renew4";
+            this.renew4.Size = new System.Drawing.Size(28, 20);
+            this.renew4.TabIndex = 0;
+            this.renew4.TabStop = false;
+            this.renew4.UseVisualStyleBackColor = true;
+            this.renew4.Click += new System.EventHandler(this.renew4_Click);
+            // 
             // GjI
             // 
             this.GjI.DecimalPlaces = 2;
@@ -2350,6 +2773,30 @@
             this.label15.Size = new System.Drawing.Size(108, 13);
             this.label15.TabIndex = 2;
             this.label15.Text = "Ground Control Accel";
+            // 
+            // renew3
+            // 
+            this.renew3.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.renew3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.renew3.Location = new System.Drawing.Point(211, 71);
+            this.renew3.Name = "renew3";
+            this.renew3.Size = new System.Drawing.Size(28, 20);
+            this.renew3.TabIndex = 0;
+            this.renew3.TabStop = false;
+            this.renew3.UseVisualStyleBackColor = true;
+            this.renew3.Click += new System.EventHandler(this.renew3_Click);
+            // 
+            // renew2
+            // 
+            this.renew2.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.renew2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.renew2.Location = new System.Drawing.Point(211, 45);
+            this.renew2.Name = "renew2";
+            this.renew2.Size = new System.Drawing.Size(28, 20);
+            this.renew2.TabIndex = 0;
+            this.renew2.TabStop = false;
+            this.renew2.UseVisualStyleBackColor = true;
+            this.renew2.Click += new System.EventHandler(this.renew2_Click);
             // 
             // Gf
             // 
@@ -2406,6 +2853,18 @@
             0,
             0,
             0});
+            // 
+            // renew1
+            // 
+            this.renew1.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.renew1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.renew1.Location = new System.Drawing.Point(211, 19);
+            this.renew1.Name = "renew1";
+            this.renew1.Size = new System.Drawing.Size(28, 20);
+            this.renew1.TabIndex = 0;
+            this.renew1.TabStop = false;
+            this.renew1.UseVisualStyleBackColor = true;
+            this.renew1.Click += new System.EventHandler(this.renew1_Click);
             // 
             // GcS
             // 
@@ -4464,6 +4923,31 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Map Information";
             // 
+            // MapRefresh
+            // 
+            this.MapRefresh.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
+            this.MapRefresh.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.MapRefresh.Location = new System.Drawing.Point(203, 17);
+            this.MapRefresh.Name = "MapRefresh";
+            this.MapRefresh.Size = new System.Drawing.Size(23, 21);
+            this.MapRefresh.TabIndex = 48;
+            this.MapRefresh.TabStop = false;
+            this.MapRefresh.UseVisualStyleBackColor = true;
+            this.MapRefresh.Click += new System.EventHandler(this.MapRefresh_Click);
+            // 
+            // MapRotAdd
+            // 
+            this.MapRotAdd.BackgroundImage = global::Teeworlds_Config_Creator.Properties.Resources.lupe;
+            this.MapRotAdd.FlatAppearance.BorderSize = 0;
+            this.MapRotAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MapRotAdd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.MapRotAdd.Location = new System.Drawing.Point(356, 43);
+            this.MapRotAdd.Name = "MapRotAdd";
+            this.MapRotAdd.Size = new System.Drawing.Size(20, 20);
+            this.MapRotAdd.TabIndex = 4;
+            this.MapRotAdd.UseVisualStyleBackColor = true;
+            this.MapRotAdd.Click += new System.EventHandler(this.MapRotAdd_Click);
+            // 
             // Map
             // 
             this.Map.FormattingEnabled = true;
@@ -5410,487 +5894,13 @@
     ".";
             this.XtraLinesDescripton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // MapRefresh
-            // 
-            this.MapRefresh.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.MapRefresh.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.MapRefresh.Location = new System.Drawing.Point(203, 17);
-            this.MapRefresh.Name = "MapRefresh";
-            this.MapRefresh.Size = new System.Drawing.Size(23, 21);
-            this.MapRefresh.TabIndex = 48;
-            this.MapRefresh.TabStop = false;
-            this.MapRefresh.UseVisualStyleBackColor = true;
-            this.MapRefresh.Click += new System.EventHandler(this.MapRefresh_Click);
-            // 
-            // MapRotAdd
-            // 
-            this.MapRotAdd.BackgroundImage = global::Teeworlds_Config_Creator.Properties.Resources.lupe;
-            this.MapRotAdd.FlatAppearance.BorderSize = 0;
-            this.MapRotAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MapRotAdd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.MapRotAdd.Location = new System.Drawing.Point(356, 43);
-            this.MapRotAdd.Name = "MapRotAdd";
-            this.MapRotAdd.Size = new System.Drawing.Size(20, 20);
-            this.MapRotAdd.TabIndex = 4;
-            this.MapRotAdd.UseVisualStyleBackColor = true;
-            this.MapRotAdd.Click += new System.EventHandler(this.MapRotAdd_Click);
-            // 
-            // TuneImage
-            // 
-            this.TuneImage.BackColor = System.Drawing.Color.Transparent;
-            this.TuneImage.Cursor = System.Windows.Forms.Cursors.Default;
-            this.TuneImage.Image = global::Teeworlds_Config_Creator.Properties.Resources._1335376864_config_creator_1;
-            this.TuneImage.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.TuneImage.Location = new System.Drawing.Point(504, 199);
-            this.TuneImage.Name = "TuneImage";
-            this.TuneImage.Size = new System.Drawing.Size(445, 212);
-            this.TuneImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.TuneImage.TabIndex = 9;
-            this.TuneImage.TabStop = false;
-            // 
-            // renew30
-            // 
-            this.renew30.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.renew30.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.renew30.Location = new System.Drawing.Point(205, 97);
-            this.renew30.Name = "renew30";
-            this.renew30.Size = new System.Drawing.Size(28, 20);
-            this.renew30.TabIndex = 0;
-            this.renew30.TabStop = false;
-            this.renew30.UseVisualStyleBackColor = true;
-            this.renew30.Click += new System.EventHandler(this.renew30_Click);
-            // 
-            // renew29
-            // 
-            this.renew29.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.renew29.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.renew29.Location = new System.Drawing.Point(205, 71);
-            this.renew29.Name = "renew29";
-            this.renew29.Size = new System.Drawing.Size(28, 20);
-            this.renew29.TabIndex = 0;
-            this.renew29.TabStop = false;
-            this.renew29.UseVisualStyleBackColor = true;
-            this.renew29.Click += new System.EventHandler(this.renew29_Click);
-            // 
-            // renew28
-            // 
-            this.renew28.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.renew28.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.renew28.Location = new System.Drawing.Point(205, 45);
-            this.renew28.Name = "renew28";
-            this.renew28.Size = new System.Drawing.Size(28, 20);
-            this.renew28.TabIndex = 0;
-            this.renew28.TabStop = false;
-            this.renew28.UseVisualStyleBackColor = true;
-            this.renew28.Click += new System.EventHandler(this.renew28_Click);
-            // 
-            // renew27
-            // 
-            this.renew27.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.renew27.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.renew27.Location = new System.Drawing.Point(205, 19);
-            this.renew27.Name = "renew27";
-            this.renew27.Size = new System.Drawing.Size(28, 20);
-            this.renew27.TabIndex = 0;
-            this.renew27.TabStop = false;
-            this.renew27.UseVisualStyleBackColor = true;
-            this.renew27.Click += new System.EventHandler(this.renew27_Click);
-            // 
-            // renew26
-            // 
-            this.renew26.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.renew26.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.renew26.Location = new System.Drawing.Point(205, 71);
-            this.renew26.Name = "renew26";
-            this.renew26.Size = new System.Drawing.Size(28, 20);
-            this.renew26.TabIndex = 0;
-            this.renew26.TabStop = false;
-            this.renew26.UseVisualStyleBackColor = true;
-            this.renew26.Click += new System.EventHandler(this.renew26_Click);
-            // 
-            // renew25
-            // 
-            this.renew25.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.renew25.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.renew25.Location = new System.Drawing.Point(205, 45);
-            this.renew25.Name = "renew25";
-            this.renew25.Size = new System.Drawing.Size(28, 20);
-            this.renew25.TabIndex = 0;
-            this.renew25.TabStop = false;
-            this.renew25.UseVisualStyleBackColor = true;
-            this.renew25.Click += new System.EventHandler(this.renew25_Click);
-            // 
-            // renew24
-            // 
-            this.renew24.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.renew24.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.renew24.Location = new System.Drawing.Point(205, 19);
-            this.renew24.Name = "renew24";
-            this.renew24.Size = new System.Drawing.Size(28, 20);
-            this.renew24.TabIndex = 0;
-            this.renew24.TabStop = false;
-            this.renew24.UseVisualStyleBackColor = true;
-            this.renew24.Click += new System.EventHandler(this.renew24_Click);
-            // 
-            // renew22
-            // 
-            this.renew22.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.renew22.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.renew22.Location = new System.Drawing.Point(211, 71);
-            this.renew22.Name = "renew22";
-            this.renew22.Size = new System.Drawing.Size(28, 20);
-            this.renew22.TabIndex = 0;
-            this.renew22.TabStop = false;
-            this.renew22.UseVisualStyleBackColor = true;
-            this.renew22.Click += new System.EventHandler(this.renew22_Click);
-            // 
-            // renew23
-            // 
-            this.renew23.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.renew23.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.renew23.Location = new System.Drawing.Point(211, 97);
-            this.renew23.Name = "renew23";
-            this.renew23.Size = new System.Drawing.Size(28, 20);
-            this.renew23.TabIndex = 0;
-            this.renew23.TabStop = false;
-            this.renew23.UseVisualStyleBackColor = true;
-            this.renew23.Click += new System.EventHandler(this.renew23_Click);
-            // 
-            // renew21
-            // 
-            this.renew21.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.renew21.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.renew21.Location = new System.Drawing.Point(211, 45);
-            this.renew21.Name = "renew21";
-            this.renew21.Size = new System.Drawing.Size(28, 20);
-            this.renew21.TabIndex = 0;
-            this.renew21.TabStop = false;
-            this.renew21.UseVisualStyleBackColor = true;
-            this.renew21.Click += new System.EventHandler(this.renew21_Click);
-            // 
-            // renew20
-            // 
-            this.renew20.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.renew20.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.renew20.Location = new System.Drawing.Point(211, 19);
-            this.renew20.Name = "renew20";
-            this.renew20.Size = new System.Drawing.Size(28, 20);
-            this.renew20.TabIndex = 0;
-            this.renew20.TabStop = false;
-            this.renew20.UseVisualStyleBackColor = true;
-            this.renew20.Click += new System.EventHandler(this.renew20_Click);
-            // 
-            // renew19
-            // 
-            this.renew19.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.renew19.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.renew19.Location = new System.Drawing.Point(211, 71);
-            this.renew19.Name = "renew19";
-            this.renew19.Size = new System.Drawing.Size(28, 20);
-            this.renew19.TabIndex = 0;
-            this.renew19.TabStop = false;
-            this.renew19.UseVisualStyleBackColor = true;
-            this.renew19.Click += new System.EventHandler(this.renew19_Click);
-            // 
-            // renew18
-            // 
-            this.renew18.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.renew18.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.renew18.Location = new System.Drawing.Point(211, 45);
-            this.renew18.Name = "renew18";
-            this.renew18.Size = new System.Drawing.Size(28, 20);
-            this.renew18.TabIndex = 0;
-            this.renew18.TabStop = false;
-            this.renew18.UseVisualStyleBackColor = true;
-            this.renew18.Click += new System.EventHandler(this.renew18_Click);
-            // 
-            // renew17
-            // 
-            this.renew17.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.renew17.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.renew17.Location = new System.Drawing.Point(211, 19);
-            this.renew17.Name = "renew17";
-            this.renew17.Size = new System.Drawing.Size(28, 20);
-            this.renew17.TabIndex = 0;
-            this.renew17.TabStop = false;
-            this.renew17.UseVisualStyleBackColor = true;
-            this.renew17.Click += new System.EventHandler(this.renew17_Click);
-            // 
-            // renew16
-            // 
-            this.renew16.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.renew16.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.renew16.Location = new System.Drawing.Point(204, 119);
-            this.renew16.Name = "renew16";
-            this.renew16.Size = new System.Drawing.Size(28, 20);
-            this.renew16.TabIndex = 0;
-            this.renew16.TabStop = false;
-            this.renew16.UseVisualStyleBackColor = true;
-            this.renew16.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // renew14
-            // 
-            this.renew14.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.renew14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.renew14.Location = new System.Drawing.Point(204, 67);
-            this.renew14.Name = "renew14";
-            this.renew14.Size = new System.Drawing.Size(28, 20);
-            this.renew14.TabIndex = 0;
-            this.renew14.TabStop = false;
-            this.renew14.UseVisualStyleBackColor = true;
-            this.renew14.Click += new System.EventHandler(this.renew14_Click);
-            // 
-            // renew15
-            // 
-            this.renew15.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.renew15.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.renew15.Location = new System.Drawing.Point(204, 93);
-            this.renew15.Name = "renew15";
-            this.renew15.Size = new System.Drawing.Size(28, 20);
-            this.renew15.TabIndex = 0;
-            this.renew15.TabStop = false;
-            this.renew15.UseVisualStyleBackColor = true;
-            this.renew15.Click += new System.EventHandler(this.renew15_Click);
-            // 
-            // renew13
-            // 
-            this.renew13.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.renew13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.renew13.Location = new System.Drawing.Point(204, 41);
-            this.renew13.Name = "renew13";
-            this.renew13.Size = new System.Drawing.Size(28, 20);
-            this.renew13.TabIndex = 0;
-            this.renew13.TabStop = false;
-            this.renew13.UseVisualStyleBackColor = true;
-            this.renew13.Click += new System.EventHandler(this.renew13_Click);
-            // 
-            // renew12
-            // 
-            this.renew12.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.renew12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.renew12.Location = new System.Drawing.Point(186, 97);
-            this.renew12.Name = "renew12";
-            this.renew12.Size = new System.Drawing.Size(28, 20);
-            this.renew12.TabIndex = 0;
-            this.renew12.TabStop = false;
-            this.renew12.UseVisualStyleBackColor = true;
-            this.renew12.Click += new System.EventHandler(this.renew12_Click);
-            // 
-            // renew11
-            // 
-            this.renew11.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.renew11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.renew11.Location = new System.Drawing.Point(186, 71);
-            this.renew11.Name = "renew11";
-            this.renew11.Size = new System.Drawing.Size(28, 20);
-            this.renew11.TabIndex = 0;
-            this.renew11.TabStop = false;
-            this.renew11.UseVisualStyleBackColor = true;
-            this.renew11.Click += new System.EventHandler(this.renew11_Click);
-            // 
-            // renew10
-            // 
-            this.renew10.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.renew10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.renew10.Location = new System.Drawing.Point(186, 45);
-            this.renew10.Name = "renew10";
-            this.renew10.Size = new System.Drawing.Size(28, 20);
-            this.renew10.TabIndex = 0;
-            this.renew10.TabStop = false;
-            this.renew10.UseVisualStyleBackColor = true;
-            this.renew10.Click += new System.EventHandler(this.renew10_Click);
-            // 
-            // renew9
-            // 
-            this.renew9.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.renew9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.renew9.Location = new System.Drawing.Point(186, 19);
-            this.renew9.Name = "renew9";
-            this.renew9.Size = new System.Drawing.Size(28, 20);
-            this.renew9.TabIndex = 0;
-            this.renew9.TabStop = false;
-            this.renew9.UseVisualStyleBackColor = true;
-            this.renew9.Click += new System.EventHandler(this.renew9_Click);
-            // 
-            // renew8
-            // 
-            this.renew8.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.renew8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.renew8.Location = new System.Drawing.Point(182, 97);
-            this.renew8.Name = "renew8";
-            this.renew8.Size = new System.Drawing.Size(28, 20);
-            this.renew8.TabIndex = 0;
-            this.renew8.TabStop = false;
-            this.renew8.UseVisualStyleBackColor = true;
-            this.renew8.Click += new System.EventHandler(this.renew8_Click);
-            // 
-            // renew7
-            // 
-            this.renew7.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.renew7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.renew7.Location = new System.Drawing.Point(182, 71);
-            this.renew7.Name = "renew7";
-            this.renew7.Size = new System.Drawing.Size(28, 20);
-            this.renew7.TabIndex = 0;
-            this.renew7.TabStop = false;
-            this.renew7.UseVisualStyleBackColor = true;
-            this.renew7.Click += new System.EventHandler(this.renew7_Click);
-            // 
-            // renew6
-            // 
-            this.renew6.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.renew6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.renew6.Location = new System.Drawing.Point(182, 45);
-            this.renew6.Name = "renew6";
-            this.renew6.Size = new System.Drawing.Size(28, 20);
-            this.renew6.TabIndex = 0;
-            this.renew6.TabStop = false;
-            this.renew6.UseVisualStyleBackColor = true;
-            this.renew6.Click += new System.EventHandler(this.renew6_Click);
-            // 
-            // renew5
-            // 
-            this.renew5.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.renew5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.renew5.Location = new System.Drawing.Point(182, 19);
-            this.renew5.Name = "renew5";
-            this.renew5.Size = new System.Drawing.Size(28, 20);
-            this.renew5.TabIndex = 0;
-            this.renew5.TabStop = false;
-            this.renew5.UseVisualStyleBackColor = true;
-            this.renew5.Click += new System.EventHandler(this.renew5_Click);
-            // 
-            // renew4
-            // 
-            this.renew4.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.renew4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.renew4.Location = new System.Drawing.Point(211, 97);
-            this.renew4.Name = "renew4";
-            this.renew4.Size = new System.Drawing.Size(28, 20);
-            this.renew4.TabIndex = 0;
-            this.renew4.TabStop = false;
-            this.renew4.UseVisualStyleBackColor = true;
-            this.renew4.Click += new System.EventHandler(this.renew4_Click);
-            // 
-            // renew3
-            // 
-            this.renew3.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.renew3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.renew3.Location = new System.Drawing.Point(211, 71);
-            this.renew3.Name = "renew3";
-            this.renew3.Size = new System.Drawing.Size(28, 20);
-            this.renew3.TabIndex = 0;
-            this.renew3.TabStop = false;
-            this.renew3.UseVisualStyleBackColor = true;
-            this.renew3.Click += new System.EventHandler(this.renew3_Click);
-            // 
-            // renew2
-            // 
-            this.renew2.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.renew2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.renew2.Location = new System.Drawing.Point(211, 45);
-            this.renew2.Name = "renew2";
-            this.renew2.Size = new System.Drawing.Size(28, 20);
-            this.renew2.TabIndex = 0;
-            this.renew2.TabStop = false;
-            this.renew2.UseVisualStyleBackColor = true;
-            this.renew2.Click += new System.EventHandler(this.renew2_Click);
-            // 
-            // renew1
-            // 
-            this.renew1.Image = global::Teeworlds_Config_Creator.Properties.Resources.Refresh;
-            this.renew1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.renew1.Location = new System.Drawing.Point(211, 19);
-            this.renew1.Name = "renew1";
-            this.renew1.Size = new System.Drawing.Size(28, 20);
-            this.renew1.TabIndex = 0;
-            this.renew1.TabStop = false;
-            this.renew1.UseVisualStyleBackColor = true;
-            this.renew1.Click += new System.EventHandler(this.renew1_Click);
-            // 
-            // öffnenToolStripMenuItem
-            // 
-            this.öffnenToolStripMenuItem.Image = global::Teeworlds_Config_Creator.Properties.Resources.Öffnen;
-            this.öffnenToolStripMenuItem.Name = "öffnenToolStripMenuItem";
-            this.öffnenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.öffnenToolStripMenuItem.Size = new System.Drawing.Size(291, 22);
-            this.öffnenToolStripMenuItem.Text = "Öffnen";
-            this.öffnenToolStripMenuItem.Click += new System.EventHandler(this.öffnenToolStripMenuItem_Click);
-            // 
-            // speichernToolStripMenuItem
-            // 
-            this.speichernToolStripMenuItem.Image = global::Teeworlds_Config_Creator.Properties.Resources.Speichern;
-            this.speichernToolStripMenuItem.Name = "speichernToolStripMenuItem";
-            this.speichernToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.speichernToolStripMenuItem.Size = new System.Drawing.Size(291, 22);
-            this.speichernToolStripMenuItem.Text = "Speichern";
-            this.speichernToolStripMenuItem.Click += new System.EventHandler(this.speichernToolStripMenuItem_Click);
-            // 
-            // speichernunterStripMenuItem1
-            // 
-            this.speichernunterStripMenuItem1.Image = global::Teeworlds_Config_Creator.Properties.Resources.Speichern;
-            this.speichernunterStripMenuItem1.Name = "speichernunterStripMenuItem1";
-            this.speichernunterStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.S)));
-            this.speichernunterStripMenuItem1.Size = new System.Drawing.Size(291, 22);
-            this.speichernunterStripMenuItem1.Text = "Speichern unter...";
-            this.speichernunterStripMenuItem1.Click += new System.EventHandler(this.speichernunterStripMenuItem1_Click);
-            // 
-            // startServerToolStripMenuItem
-            // 
-            this.startServerToolStripMenuItem.Image = global::Teeworlds_Config_Creator.Properties.Resources.teeworlds_1;
-            this.startServerToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.White;
-            this.startServerToolStripMenuItem.Name = "startServerToolStripMenuItem";
-            this.startServerToolStripMenuItem.Size = new System.Drawing.Size(291, 22);
-            this.startServerToolStripMenuItem.Text = "Start Teeworlds Server";
-            this.startServerToolStripMenuItem.Click += new System.EventHandler(this.startServerToolStripMenuItem_Click);
-            // 
-            // deutschToolStripMenuItem
-            // 
-            this.deutschToolStripMenuItem.CheckOnClick = true;
-            this.deutschToolStripMenuItem.Image = global::Teeworlds_Config_Creator.Properties.Resources.DE;
-            this.deutschToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.deutschToolStripMenuItem.Name = "deutschToolStripMenuItem";
-            this.deutschToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
-            this.deutschToolStripMenuItem.Text = "Deutsch";
-            this.deutschToolStripMenuItem.Click += new System.EventHandler(this.deutschToolStripMenuItem_Click);
-            // 
-            // englischToolStripMenuItem
-            // 
-            this.englischToolStripMenuItem.CheckOnClick = true;
-            this.englischToolStripMenuItem.Image = global::Teeworlds_Config_Creator.Properties.Resources.US;
-            this.englischToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.englischToolStripMenuItem.Name = "englischToolStripMenuItem";
-            this.englischToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
-            this.englischToolStripMenuItem.Text = "Englisch";
-            this.englischToolStripMenuItem.Click += new System.EventHandler(this.englischToolStripMenuItem_Click);
-            // 
-            // homepageToolStripMenuItem
-            // 
-            this.homepageToolStripMenuItem.Image = global::Teeworlds_Config_Creator.Properties.Resources.Homepage;
-            this.homepageToolStripMenuItem.Name = "homepageToolStripMenuItem";
-            this.homepageToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
-            this.homepageToolStripMenuItem.Text = "Homepage";
-            this.homepageToolStripMenuItem.Click += new System.EventHandler(this.homepageToolStripMenuItem_Click);
-            // 
-            // hilfeToolStripMenuItem
-            // 
-            this.hilfeToolStripMenuItem.CheckOnClick = true;
-            this.hilfeToolStripMenuItem.Image = global::Teeworlds_Config_Creator.Properties.Resources.Hilfe;
-            this.hilfeToolStripMenuItem.Name = "hilfeToolStripMenuItem";
-            this.hilfeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.H)));
-            this.hilfeToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
-            this.hilfeToolStripMenuItem.Text = "Hilfe";
-            this.hilfeToolStripMenuItem.Click += new System.EventHandler(this.hilfeToolStripMenuItem_Click);
-            // 
-            // infoÜberToolStripMenuItem
-            // 
-            this.infoÜberToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("infoÜberToolStripMenuItem.Image")));
-            this.infoÜberToolStripMenuItem.Name = "infoÜberToolStripMenuItem";
-            this.infoÜberToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
-            this.infoÜberToolStripMenuItem.Text = "Info Über";
-            this.infoÜberToolStripMenuItem.Click += new System.EventHandler(this.infoÜberToolStripMenuItem_Click);
+            // startTeeworldsClientToolStripMenuItem
+            // 
+            this.startTeeworldsClientToolStripMenuItem.Image = global::Teeworlds_Config_Creator.Properties.Resources.teeworlds_1;
+            this.startTeeworldsClientToolStripMenuItem.Name = "startTeeworldsClientToolStripMenuItem";
+            this.startTeeworldsClientToolStripMenuItem.Size = new System.Drawing.Size(291, 22);
+            this.startTeeworldsClientToolStripMenuItem.Text = "Start Teeworlds Client";
+            this.startTeeworldsClientToolStripMenuItem.Click += new System.EventHandler(this.startTeeworldsClientToolStripMenuItem_Click);
             // 
             // TCC
             // 
@@ -5928,6 +5938,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Port)).EndInit();
             this.Tuning.ResumeLayout(false);
             this.Tuning.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TuneImage)).EndInit();
             this.groupBox17.ResumeLayout(false);
             this.groupBox17.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LaserDmg)).EndInit();
@@ -6069,7 +6080,6 @@
             this.XtraLines.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TuneImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -6456,6 +6466,7 @@
         private System.Windows.Forms.NumericUpDown TeekingKingPrize;
         private System.Windows.Forms.Label label105;
         private System.Windows.Forms.ToolStripMenuItem startServerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem startTeeworldsClientToolStripMenuItem;
     }
 }
 
