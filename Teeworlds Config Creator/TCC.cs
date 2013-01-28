@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 
@@ -7,15 +8,15 @@ namespace Teeworlds_Config_Creator
 {
     public partial class TCC : Form
     {
-        AboutBox1 InfoBox = new AboutBox1();
-        VoteManager VoteForm = new VoteManager();
-        BatCreator SSCreator = new BatCreator();
-        Updater Updater = new Updater();
-        Maprotation MapRotForm;
-        Settings option;
-        string CurrentFile;
-        string LastFile;
-        string lang;
+        private readonly AboutBox1 InfoBox = new AboutBox1();
+        private readonly Maprotation MapRotForm;
+        private readonly BatCreator SSCreator = new BatCreator();
+        private readonly Updater Updater = new Updater();
+        private readonly VoteManager VoteForm = new VoteManager();
+        private readonly Settings option;
+        private string CurrentFile;
+        private string LastFile;
+        private string lang;
 
         public TCC()
         {
@@ -49,7 +50,7 @@ namespace Teeworlds_Config_Creator
 
         private void beendenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -64,7 +65,7 @@ namespace Teeworlds_Config_Creator
 
         private void homepageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://shadow-software.php-friends.de");
+            Process.Start("http://shadow-software.php-friends.de");
         }
 
         private void infoÜberToolStripMenuItem_Click(object sender, EventArgs e)
@@ -122,8 +123,12 @@ namespace Teeworlds_Config_Creator
                 if (GType.Text.Length == 0)
                 {
                     ConfigOutput.Items.Clear();
-                    if (Properties.Settings.Default.Lang == "DE") MessageBox.Show("Bitte wähle ein Gametype aus, da der Server sonst nicht startet!", "Freies Feld!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    if (Properties.Settings.Default.Lang == "EN") MessageBox.Show("Please chose a Gametype, until the server doesn´t start!", "Free Field!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (Properties.Settings.Default.Lang == "DE")
+                        MessageBox.Show("Bitte wähle ein Gametype aus, da der Server sonst nicht startet!",
+                                        "Freies Feld!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (Properties.Settings.Default.Lang == "EN")
+                        MessageBox.Show("Please chose a Gametype, until the server doesn´t start!", "Free Field!",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 ConfigOutput.Items.Add("sv_gametype " + GType.Text);
@@ -133,8 +138,12 @@ namespace Teeworlds_Config_Creator
                 if (Map.Text.Length == 0)
                 {
                     ConfigOutput.Items.Clear();
-                    if (Properties.Settings.Default.Lang == "DE") MessageBox.Show("Bitte wähle eine Map aus, da der Server sonst nicht startet!", "Freies Feld!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    if (Properties.Settings.Default.Lang == "EN") MessageBox.Show("Please chose a map, until the server doesn´t start!", "Free Field!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (Properties.Settings.Default.Lang == "DE")
+                        MessageBox.Show("Bitte wähle eine Map aus, da der Server sonst nicht startet!", "Freies Feld!",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (Properties.Settings.Default.Lang == "EN")
+                        MessageBox.Show("Please chose a map, until the server doesn´t start!", "Free Field!",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 ConfigOutput.Items.Add("sv_map " + Map.Text);
@@ -161,7 +170,8 @@ namespace Teeworlds_Config_Creator
                 if (Tournament.Checked) ConfigOutput.Items.Add("sv_tournament_mode 1");
                 else ConfigOutput.Items.Add("sv_tournament_mode 0");
                 if (InactiveKT.Value > 0) ConfigOutput.Items.Add("sv_inactivekick_time " + InactiveKT.Value);
-                if (DealInactive.SelectedIndex != -1) ConfigOutput.Items.Add("sv_inactivekick " + DealInactive.SelectedIndex);
+                if (DealInactive.SelectedIndex != -1)
+                    ConfigOutput.Items.Add("sv_inactivekick " + DealInactive.SelectedIndex);
                 //Instagib
                 if (groupBox6.Enabled)
                 {
@@ -338,21 +348,21 @@ namespace Teeworlds_Config_Creator
                     ConfigOutput.Items.Add("teeking_KingKillKing_prize " + TeekingKingPrize.Value);
                 }
                 //WaterMod
-                if(groupBox26.Enabled)
+                if (groupBox26.Enabled)
                 {
-                	ConfigOutput.Items.Add("*WaterMOD");
-                	ConfigOutput.Items.Add("sv_water_gravity " + WModGravity.Value);
-                	ConfigOutput.Items.Add("sv_water_maxx " + WModMaxX.Value);
-                	ConfigOutput.Items.Add("sv_water_maxy " + WModMaxY.Value);
-                	ConfigOutput.Items.Add("sv_water_friction " + WModFrict.Value);
-                	if (WModOxy.Checked) ConfigOutput.Items.Add("sv_water_oxygen 1");
-                	else ConfigOutput.Items.Add("sv_water_oxygen 0");
-                	ConfigOutput.Items.Add("sv_water_oxy_drain " + WModOxyDeg.Value);
-                	ConfigOutput.Items.Add("sv_water_oxy_regen " + WModOxyReg.Value);
-                	ConfigOutput.Items.Add("sv_water_oxy_emoteid " + WModOxyEmoID.Value);
-                	ConfigOutput.Items.Add("sv_water_gain " + WModGain.Value);
-                	if (WModReflection.Checked) ConfigOutput.Items.Add("sv_water_reflect 1");
-                	else ConfigOutput.Items.Add("sv_water_reflect 0");
+                    ConfigOutput.Items.Add("*WaterMOD");
+                    ConfigOutput.Items.Add("sv_water_gravity " + WModGravity.Value);
+                    ConfigOutput.Items.Add("sv_water_maxx " + WModMaxX.Value);
+                    ConfigOutput.Items.Add("sv_water_maxy " + WModMaxY.Value);
+                    ConfigOutput.Items.Add("sv_water_friction " + WModFrict.Value);
+                    if (WModOxy.Checked) ConfigOutput.Items.Add("sv_water_oxygen 1");
+                    else ConfigOutput.Items.Add("sv_water_oxygen 0");
+                    ConfigOutput.Items.Add("sv_water_oxy_drain " + WModOxyDeg.Value);
+                    ConfigOutput.Items.Add("sv_water_oxy_regen " + WModOxyReg.Value);
+                    ConfigOutput.Items.Add("sv_water_oxy_emoteid " + WModOxyEmoID.Value);
+                    ConfigOutput.Items.Add("sv_water_gain " + WModGain.Value);
+                    if (WModReflection.Checked) ConfigOutput.Items.Add("sv_water_reflect 1");
+                    else ConfigOutput.Items.Add("sv_water_reflect 0");
                 }
                 //Tunes
                 if (useTune.Checked)
@@ -429,13 +439,13 @@ namespace Teeworlds_Config_Creator
             {
                 CurrentFile = filename;
                 LastFile = filename;
-                StreamWriter streamWriter = new StreamWriter(filename);
+                var streamWriter = new StreamWriter(filename);
                 for (int s = 0; s < ConfigOutput.Items.Count; s++)
                 {
                     streamWriter.WriteLine(ConfigOutput.Items[s]);
                 }
                 streamWriter.Close();
-                this.Text = filename + " - Teeworlds Config Creator";
+                Text = filename + " - Teeworlds Config Creator";
             }
             catch (Exception error)
             {
@@ -468,7 +478,7 @@ namespace Teeworlds_Config_Creator
             {
                 try
                 {
-                    this.Text = filename + " - Teeworlds Config Creator";
+                    Text = filename + " - Teeworlds Config Creator";
                     LastFile = filename;
                     CurrentFile = filename;
                     //Die ausgewählte Datei öffnen, lesen und in Output reinschreiben
@@ -476,7 +486,7 @@ namespace Teeworlds_Config_Creator
                     bool XLines = false;
                     ConfigOutput.Items.Clear();
                     VoteForm.VoteList.Items.Clear();
-                    StreamReader reader = new StreamReader(filename);
+                    var reader = new StreamReader(filename);
                     //Die Werte auslesen
                     while ((Line = reader.ReadLine()) != null)
                     {
@@ -507,7 +517,7 @@ namespace Teeworlds_Config_Creator
                         if (words[0] == "sv_rcon_max_tries") MaxRconTri.Value = decimal.Parse(words[1]);
                         //Rcon Ban Time
                         if (words[0] == "sv_rcon_ban_time") RconBanTime.Value = decimal.Parse(words[1]);
-                        //Passwort
+                            //Passwort
                         else if (words[0] == "password") Password.Text = Line.Substring(Line.IndexOf(" ") + 1);
                         //Gametype
                         if (words[0] == "sv_gametype") GType.Text = words[1];
@@ -557,7 +567,8 @@ namespace Teeworlds_Config_Creator
                         if (Line == "sv_chatkill 0" && groupBox6.Enabled) ChatKill.Checked = false;
                         if (Line == "sv_antibot 1" && groupBox6.Enabled) AntiBot.Checked = true;
                         if (Line == "sv_antibot 0" && groupBox6.Enabled) AntiBot.Checked = false;
-                        if (words[0] == "sv_war_time" && groupBox6.Enabled) InstaWartime.Value = decimal.Parse(words[1]);
+                        if (words[0] == "sv_war_time" && groupBox6.Enabled)
+                            InstaWartime.Value = decimal.Parse(words[1]);
                         if (words[0] == "sv_restart_time" && groupBox6.Enabled) ResTime.Value = decimal.Parse(words[1]);
                         if (Line == "sv_leave_muted 1" && groupBox6.Enabled) leaveMuted.Checked = true;
                         if (Line == "sv_leave_muted 0" && groupBox6.Enabled) leaveMuted.Checked = false;
@@ -588,17 +599,27 @@ namespace Teeworlds_Config_Creator
                         if (Line == "sv_laserjumps 0" && groupBox8.Enabled) zLaserJump.Checked = false;
                         if (Line == "sv_vote_forcereason 1" && groupBox8.Enabled) VoteFoRea.Checked = true;
                         if (Line == "sv_vote_forcereason 0" && groupBox8.Enabled) VoteFoRea.Checked = false;
-                        if (words[0] == "sv_suicide_time" && groupBox8.Enabled) SuicTime.Value = decimal.Parse(words[1]);
-                        if (words[0] == "sv_grenade_min_damage" && groupBox8.Enabled) GreMinDmg.Value = decimal.Parse(words[1]);
-                        if (words[0] == "sv_anticamper" && groupBox8.Enabled) zCatchAC.SelectedIndex = int.Parse(words[1]);
-                        if (words[0] == "sv_anticamper_freeze" && groupBox8.Enabled) ACFreTi.Value = decimal.Parse(words[1]);
-                        if (words[0] == "sv_kill_penalty" && groupBox8.Enabled) KillPena.Value = decimal.Parse(words[1]);
+                        if (words[0] == "sv_suicide_time" && groupBox8.Enabled)
+                            SuicTime.Value = decimal.Parse(words[1]);
+                        if (words[0] == "sv_grenade_min_damage" && groupBox8.Enabled)
+                            GreMinDmg.Value = decimal.Parse(words[1]);
+                        if (words[0] == "sv_anticamper" && groupBox8.Enabled)
+                            zCatchAC.SelectedIndex = int.Parse(words[1]);
+                        if (words[0] == "sv_anticamper_freeze" && groupBox8.Enabled)
+                            ACFreTi.Value = decimal.Parse(words[1]);
+                        if (words[0] == "sv_kill_penalty" && groupBox8.Enabled)
+                            KillPena.Value = decimal.Parse(words[1]);
                         //Survival
-                        if (words[0] == "sv_givehealth" && groupBox18.Enabled) SurGiveHea.Value = decimal.Parse(words[1]);
-                        if (words[0] == "sv_givearmor" && groupBox18.Enabled) SurGiveArm.Value = decimal.Parse(words[1]);
-                        if (words[0] == "sv_giveweapon_shotgun" && groupBox18.Enabled) SurGiveShot.Value = decimal.Parse(words[1]);
-                        if (words[0] == "sv_giveweapon_grenade" && groupBox18.Enabled) SurGiveGren.Value = decimal.Parse(words[1]);
-                        if (words[0] == "sv_giveweapon_laser" && groupBox18.Enabled) SurGiveLaser.Value = decimal.Parse(words[1]);
+                        if (words[0] == "sv_givehealth" && groupBox18.Enabled)
+                            SurGiveHea.Value = decimal.Parse(words[1]);
+                        if (words[0] == "sv_givearmor" && groupBox18.Enabled)
+                            SurGiveArm.Value = decimal.Parse(words[1]);
+                        if (words[0] == "sv_giveweapon_shotgun" && groupBox18.Enabled)
+                            SurGiveShot.Value = decimal.Parse(words[1]);
+                        if (words[0] == "sv_giveweapon_grenade" && groupBox18.Enabled)
+                            SurGiveGren.Value = decimal.Parse(words[1]);
+                        if (words[0] == "sv_giveweapon_laser" && groupBox18.Enabled)
+                            SurGiveLaser.Value = decimal.Parse(words[1]);
                         if (Line == "sv_giveweapon_hammer 1" && groupBox18.Enabled) SurGiveHam.Checked = true;
                         if (Line == "sv_giveweapon_hammer 0" && groupBox18.Enabled) SurGiveHam.Checked = false;
                         if (Line == "sv_giveweapon_gun 1" && groupBox18.Enabled) SurGiveGun.Checked = true;
@@ -612,42 +633,64 @@ namespace Teeworlds_Config_Creator
                         if (Line == "sv_respawn_weapons 1" && groupBox18.Enabled) SurRespWeap.Checked = true;
                         if (Line == "sv_respawn_weapons 0" && groupBox18.Enabled) SurRespWeap.Checked = false;
                         //Hammer Party
-                        if (words[0] == "sv_hammer_strength" && groupBox19.Enabled) HPHamStr.Value = decimal.Parse(words[1]);
+                        if (words[0] == "sv_hammer_strength" && groupBox19.Enabled)
+                            HPHamStr.Value = decimal.Parse(words[1]);
                         //Infection
-                        if (words[0] == "inf_walldelay" && groupBox20.Enabled) InfectWaDel.Value = decimal.Parse(words[1]);
-                        if (words[0] == "inf_walllife" && groupBox20.Enabled) InfectWaLife.Value = decimal.Parse(words[1]);
-                        if (words[0] == "inf_walllength" && groupBox20.Enabled) InfectWaLenght.Value = decimal.Parse(words[1]);
-                        if (words[0] == "inf_infectiondelay" && groupBox20.Enabled) InfectDelay.Value = decimal.Parse(words[1]);
-                        if (words[0] == "inf_airstrikekills" && groupBox20.Enabled) InfectAirStrKill.Value = decimal.Parse(words[1]);
-                        if (words[0] == "inf_superjumpkills" && groupBox20.Enabled) InfectSupJum.Value = decimal.Parse(words[1]);
-                        if (words[0] == "inf_superjumpforce" && groupBox20.Enabled) InfectSupJumFor.Value = decimal.Parse(words[1]);
-                        if (words[0] == "inf_zombie_explodes" && groupBox20.Enabled) InfecZombExplo.SelectedIndex = int.Parse(words[1]);
-                        if (words[0] == "inf_airstrike_text" && groupBox20.Enabled) InfectAirText.Text = Line.Substring(Line.IndexOf(" ") + 1);
-                        if (words[0] == "inf_superjump_text" && groupBox20.Enabled) InfectSJT.Text = Line.Substring(Line.IndexOf(" ") + 1);
+                        if (words[0] == "inf_walldelay" && groupBox20.Enabled)
+                            InfectWaDel.Value = decimal.Parse(words[1]);
+                        if (words[0] == "inf_walllife" && groupBox20.Enabled)
+                            InfectWaLife.Value = decimal.Parse(words[1]);
+                        if (words[0] == "inf_walllength" && groupBox20.Enabled)
+                            InfectWaLenght.Value = decimal.Parse(words[1]);
+                        if (words[0] == "inf_infectiondelay" && groupBox20.Enabled)
+                            InfectDelay.Value = decimal.Parse(words[1]);
+                        if (words[0] == "inf_airstrikekills" && groupBox20.Enabled)
+                            InfectAirStrKill.Value = decimal.Parse(words[1]);
+                        if (words[0] == "inf_superjumpkills" && groupBox20.Enabled)
+                            InfectSupJum.Value = decimal.Parse(words[1]);
+                        if (words[0] == "inf_superjumpforce" && groupBox20.Enabled)
+                            InfectSupJumFor.Value = decimal.Parse(words[1]);
+                        if (words[0] == "inf_zombie_explodes" && groupBox20.Enabled)
+                            InfecZombExplo.SelectedIndex = int.Parse(words[1]);
+                        if (words[0] == "inf_airstrike_text" && groupBox20.Enabled)
+                            InfectAirText.Text = Line.Substring(Line.IndexOf(" ") + 1);
+                        if (words[0] == "inf_superjump_text" && groupBox20.Enabled)
+                            InfectSJT.Text = Line.Substring(Line.IndexOf(" ") + 1);
                         //Foot/TeeBall
-                        if (words[0] == "sv_bounce_loss" && groupBox21.Enabled) FootBouLoss.Value = decimal.Parse(words[1]);
+                        if (words[0] == "sv_bounce_loss" && groupBox21.Enabled)
+                            FootBouLoss.Value = decimal.Parse(words[1]);
                         if (Line == "sv_explosions 1" && groupBox21.Enabled) FootExplo.Checked = true;
                         if (Line == "sv_explosions 0" && groupBox21.Enabled) FootExplo.Checked = false;
-                        if (words[0] == "sv_spawn_delay" && groupBox21.Enabled) FootSpaDel.Value = decimal.Parse(words[1]);
-                        if (words[0] == "sv_ball_respawn" && groupBox21.Enabled) FootBallResp.Value = decimal.Parse(words[1]);
-                        if (words[0] == "sv_score_diff" && groupBox21.Enabled) FootScorDiff.Value = decimal.Parse(words[1]);
-                        if (words[0] == "sv_sudden_death_score_diff" && groupBox21.Enabled) FootDSDiff.Value = decimal.Parse(words[1]);
-                        if (words[0] == "sv_keeptime" && groupBox21.Enabled) FootKeepTime.Value = decimal.Parse(words[1]);
-                        if (words[0] == "sv_hitkeeptime" && groupBox21.Enabled) FootHitKeepTime.Value = decimal.Parse(words[1]);
-                        if (words[0] == "sv_selfkillscore" && groupBox21.Enabled) FootSelfkillScore.Value = decimal.Parse(words[1]);
-                        if (words[0] == "sv_respawntime" && groupBox21.Enabled) FootRspwnTime.Value = decimal.Parse(words[1]);
+                        if (words[0] == "sv_spawn_delay" && groupBox21.Enabled)
+                            FootSpaDel.Value = decimal.Parse(words[1]);
+                        if (words[0] == "sv_ball_respawn" && groupBox21.Enabled)
+                            FootBallResp.Value = decimal.Parse(words[1]);
+                        if (words[0] == "sv_score_diff" && groupBox21.Enabled)
+                            FootScorDiff.Value = decimal.Parse(words[1]);
+                        if (words[0] == "sv_sudden_death_score_diff" && groupBox21.Enabled)
+                            FootDSDiff.Value = decimal.Parse(words[1]);
+                        if (words[0] == "sv_keeptime" && groupBox21.Enabled)
+                            FootKeepTime.Value = decimal.Parse(words[1]);
+                        if (words[0] == "sv_hitkeeptime" && groupBox21.Enabled)
+                            FootHitKeepTime.Value = decimal.Parse(words[1]);
+                        if (words[0] == "sv_selfkillscore" && groupBox21.Enabled)
+                            FootSelfkillScore.Value = decimal.Parse(words[1]);
+                        if (words[0] == "sv_respawntime" && groupBox21.Enabled)
+                            FootRspwnTime.Value = decimal.Parse(words[1]);
                         if (Line == "sv_basket 1" && groupBox21.Enabled) FootBasket.Checked = true;
                         if (Line == "sv_basket 0" && groupBox21.Enabled) FootBasket.Checked = false;
                         if (Line == "sv_selfkill 1" && groupBox21.Enabled) FootSelfkill.Checked = true;
                         if (Line == "sv_selfkill 0" && groupBox21.Enabled) FootSelfkill.Checked = false;
-                        if (words[0] == "sv_grenade_startspeed" && groupBox21.Enabled) FootGreStaSpe.Value = decimal.Parse(words[1]);
+                        if (words[0] == "sv_grenade_startspeed" && groupBox21.Enabled)
+                            FootGreStaSpe.Value = decimal.Parse(words[1]);
                         if (Line == "sv_hook_team 1" && groupBox21.Enabled) FootHookTeam.Checked = true;
                         if (Line == "sv_hook_team 0" && groupBox21.Enabled) FootHookTeam.Checked = false;
                         if (Line == "sv_hook_keeper 1" && groupBox21.Enabled) FootHookKeep.Checked = true;
                         if (Line == "sv_hook_keeper 0" && groupBox21.Enabled) FootHookKeep.Checked = false;
                         if (Line == "sv_goalkeeper 1" && groupBox21.Enabled) FootGoalKeep.Checked = true;
                         if (Line == "sv_goalkeeper 0" && groupBox21.Enabled) FootGoalKeep.Checked = false;
-                        if (words[0] == "sv_goal_keeptime" && groupBox21.Enabled) FootGoKeTi.Value = decimal.Parse(words[1]);
+                        if (words[0] == "sv_goal_keeptime" && groupBox21.Enabled)
+                            FootGoKeTi.Value = decimal.Parse(words[1]);
                         if (Line == "sv_real_foot 1" && groupBox21.Enabled) FootReal.Checked = true;
                         if (Line == "sv_real_foot 0" && groupBox21.Enabled) FootReal.Checked = false;
                         if (Line == "sv_keeper_jumping 1" && groupBox21.Enabled) FootKeJump.Checked = true;
@@ -655,7 +698,8 @@ namespace Teeworlds_Config_Creator
                         if (Line == "sv_grenade_death 1" && groupBox21.Enabled) FootGreDeath.Checked = true;
                         if (Line == "sv_grenade_death 0" && groupBox21.Enabled) FootGreDeath.Checked = false;
                         //Race
-                        if (words[0] == "sv_reserved_slots" && groupBox22.Enabled) RaceReSlots.Value = decimal.Parse(words[1]);
+                        if (words[0] == "sv_reserved_slots" && groupBox22.Enabled)
+                            RaceReSlots.Value = decimal.Parse(words[1]);
                         if (Line == "sv_infinite_ammo 1" && groupBox22.Enabled) RaceInfAmmo.Checked = true;
                         if (Line == "sv_infinite_ammo 0" && groupBox22.Enabled) RaceInfAmmo.Checked = false;
                         if (words[0] == "sv_reserved_slots_pass" && groupBox22.Enabled) RaceReSloPW.Text = words[1];
@@ -676,7 +720,8 @@ namespace Teeworlds_Config_Creator
                         if (Line == "sv_delete_grenades_after_death 0" && groupBox22.Enabled) RaceDGAD.Checked = false;
                         if (Line == "sv_rocket_jump_damage 1" && groupBox22.Enabled) RaceRoJuDmg.Checked = true;
                         if (Line == "sv_rocket_jump_damage 0" && groupBox22.Enabled) RaceRoJuDmg.Checked = false;
-                        if (words[0] == "sv_pickup_respawn" && groupBox22.Enabled) RacePickResp.Value = decimal.Parse(words[1]);
+                        if (words[0] == "sv_pickup_respawn" && groupBox22.Enabled)
+                            RacePickResp.Value = decimal.Parse(words[1]);
                         if (Line == "sv_score_ip 1" && groupBox22.Enabled) RaceScoreIP.Checked = true;
                         if (Line == "sv_score_ip 0" && groupBox22.Enabled) RaceScoreIP.Checked = false;
                         if (Line == "sv_checkpoint_save 1" && groupBox22.Enabled) RaceCheckpSave.Checked = true;
@@ -693,56 +738,86 @@ namespace Teeworlds_Config_Creator
                         if (words[0] == "sv_sql_user" && groupBox22.Enabled) RaceSqlUser.Text = words[1];
                         if (words[0] == "sv_sql_pw" && groupBox22.Enabled) RaceSqlPW.Text = words[1];
                         if (words[0] == "sv_sql_ip" && groupBox22.Enabled) RaceSqlIP.Text = words[1];
-                        if (words[0] == "sv_sql_port" && groupBox22.Enabled) RaceSqlPort.Value = decimal.Parse(words[1]);
+                        if (words[0] == "sv_sql_port" && groupBox22.Enabled)
+                            RaceSqlPort.Value = decimal.Parse(words[1]);
                         if (words[0] == "sv_sql_database" && groupBox22.Enabled) RaceSqlDatabase.Text = words[1];
                         if (words[0] == "sv_sql_prefix" && groupBox22.Enabled) RaceSqlPrefix.Text = words[1];
                         //Teeking
-                        if (words[0] == "teeking_start_weaponts" && groupBox23.Enabled) TeekingStartWea.SelectedIndex = int.Parse(words[1]);
-                        if (words[0] == "teeking_king_mj" && groupBox23.Enabled) TeekingJumps.Value = decimal.Parse(words[1]);
-                        if (words[0] == "teeking_king_fs" && groupBox23.Enabled) TeekingKFirespeed.Value = decimal.Parse(words[1]);
-                        if (words[0] == "teeking_tee_fs" && groupBox23.Enabled) TeekingTFirespeed.Value = decimal.Parse(words[1]);
-                        if (words[0] == "teeking_king_im" && groupBox23.Enabled) TeekingImorTime.Value = decimal.Parse(words[1]);
-                        if (words[0] == "teeking_king_number" && groupBox23.Enabled) TeekingNofK.Value = decimal.Parse(words[1]);
-                        if (words[0] == "teeking_lastking_prize" && groupBox23.Enabled) TeekingLKPrize.Value = decimal.Parse(words[1]);
-                        if (words[0] == "teeking_KingKillKing_prize" && groupBox23.Enabled) TeekingKingPrize.Value = decimal.Parse(words[1]);
+                        if (words[0] == "teeking_start_weaponts" && groupBox23.Enabled)
+                            TeekingStartWea.SelectedIndex = int.Parse(words[1]);
+                        if (words[0] == "teeking_king_mj" && groupBox23.Enabled)
+                            TeekingJumps.Value = decimal.Parse(words[1]);
+                        if (words[0] == "teeking_king_fs" && groupBox23.Enabled)
+                            TeekingKFirespeed.Value = decimal.Parse(words[1]);
+                        if (words[0] == "teeking_tee_fs" && groupBox23.Enabled)
+                            TeekingTFirespeed.Value = decimal.Parse(words[1]);
+                        if (words[0] == "teeking_king_im" && groupBox23.Enabled)
+                            TeekingImorTime.Value = decimal.Parse(words[1]);
+                        if (words[0] == "teeking_king_number" && groupBox23.Enabled)
+                            TeekingNofK.Value = decimal.Parse(words[1]);
+                        if (words[0] == "teeking_lastking_prize" && groupBox23.Enabled)
+                            TeekingLKPrize.Value = decimal.Parse(words[1]);
+                        if (words[0] == "teeking_KingKillKing_prize" && groupBox23.Enabled)
+                            TeekingKingPrize.Value = decimal.Parse(words[1]);
                         //WaterMod
                         if (Line == "*WaterMOD") UseWater.Checked = true;
-                        if (words[0] == "sv_water_gravity" && groupBox26.Enabled) WModGravity.Value = decimal.Parse(words[1]);
+                        if (words[0] == "sv_water_gravity" && groupBox26.Enabled)
+                            WModGravity.Value = decimal.Parse(words[1]);
                         if (words[0] == "sv_water_maxx" && groupBox26.Enabled) WModMaxX.Value = decimal.Parse(words[1]);
                         if (words[0] == "sv_water_maxy" && groupBox26.Enabled) WModMaxY.Value = decimal.Parse(words[1]);
-                        if (words[0] == "sv_water_friction" && groupBox26.Enabled) WModFrict.Value = decimal.Parse(words[1]);
+                        if (words[0] == "sv_water_friction" && groupBox26.Enabled)
+                            WModFrict.Value = decimal.Parse(words[1]);
                         if (Line == "sv_water_oxygen 1" && groupBox26.Enabled) WModOxy.Checked = true;
                         if (Line == "sv_water_oxygen 0" && groupBox26.Enabled) WModOxy.Checked = false;
-                        if (words[0] == "sv_water_oxy_drain" && groupBox26.Enabled) WModOxyDeg.Value = decimal.Parse(words[1]);
-                        if (words[0] == "sv_water_oxy_regen" && groupBox26.Enabled) WModOxyReg.Value = decimal.Parse(words[1]);
-                        if (words[0] == "sv_water_oxy_emoteid" && groupBox26.Enabled) WModOxyEmoID.Value = decimal.Parse(words[1]);
+                        if (words[0] == "sv_water_oxy_drain" && groupBox26.Enabled)
+                            WModOxyDeg.Value = decimal.Parse(words[1]);
+                        if (words[0] == "sv_water_oxy_regen" && groupBox26.Enabled)
+                            WModOxyReg.Value = decimal.Parse(words[1]);
+                        if (words[0] == "sv_water_oxy_emoteid" && groupBox26.Enabled)
+                            WModOxyEmoID.Value = decimal.Parse(words[1]);
                         if (words[0] == "sv_water_gain" && groupBox26.Enabled) WModGain.Value = decimal.Parse(words[1]);
                         if (Line == "sv_water_reflect 1" && groupBox26.Enabled) WModReflection.Checked = true;
                         if (Line == "sv_water_reflect 0" && groupBox26.Enabled) WModReflection.Checked = false;
                         //MapRotation
                         if (words[0] == "sv_maprotation") MapRot.Text = Line.Substring(Line.IndexOf(" ") + 1);
-                        //Map
+                            //Map
                         else if (words[0] == "sv_map") Map.Text = words[1];
                         //Rounds per Map
                         if (words[0] == "sv_rounds_per_map") RoundsPmap.Value = decimal.Parse(words[1]);
                         //Tunes
                         if (words[0] == "tune") useTune.Checked = true;
-                        if (words[0] == "tune" && words[1] == "ground_control_speed") GcS.Value = decimal.Parse(words[2].Replace(".", ","));
-                        if (words[0] == "tune" && words[1] == "ground_control_accel") GcA.Value = decimal.Parse(words[2].Replace(".", ","));
-                        if (words[0] == "tune" && words[1] == "ground_friction") Gf.Value = decimal.Parse(words[2].Replace(".", ","));
-                        if (words[0] == "tune" && words[1] == "ground_jump_impulse") GjI.Value = decimal.Parse(words[2].Replace(".", ","));
-                        if (words[0] == "tune" && words[1] == "air_jump_impulse") AjI.Value = decimal.Parse(words[2].Replace(".", ","));
-                        if (words[0] == "tune" && words[1] == "air_control_speed") AcS.Value = decimal.Parse(words[2].Replace(".", ","));
-                        if (words[0] == "tune" && words[1] == "air_control_accel") AcA.Value = decimal.Parse(words[2].Replace(".", ","));
-                        if (words[0] == "tune" && words[1] == "air_friction") Af.Value = decimal.Parse(words[2].Replace(".", ","));
-                        if (words[0] == "tune" && words[1] == "hook_length") HL.Value = decimal.Parse(words[2].Replace(".", ","));
-                        if (words[0] == "tune" && words[1] == "hook_fire_speed") HfS.Value = decimal.Parse(words[2].Replace(".", ","));
-                        if (words[0] == "tune" && words[1] == "hook_drag_accel") HdA.Value = decimal.Parse(words[2].Replace(".", ","));
-                        if (words[0] == "tune" && words[1] == "hook_drag_speed") HdS.Value = decimal.Parse(words[2].Replace(".", ","));
-                        if (words[0] == "tune" && words[1] == "gravity") gravity.Value = decimal.Parse(words[2].Replace(".", ","));
-                        if (words[0] == "tune" && words[1] == "velramp_start") VrS.Value = decimal.Parse(words[2].Replace(".", ","));
-                        if (words[0] == "tune" && words[1] == "velramp_range") VrR.Value = decimal.Parse(words[2].Replace(".", ","));
-                        if (words[0] == "tune" && words[1] == "velramp_curvature") VrC.Value = decimal.Parse(words[2].Replace(".", ","));
+                        if (words[0] == "tune" && words[1] == "ground_control_speed")
+                            GcS.Value = decimal.Parse(words[2].Replace(".", ","));
+                        if (words[0] == "tune" && words[1] == "ground_control_accel")
+                            GcA.Value = decimal.Parse(words[2].Replace(".", ","));
+                        if (words[0] == "tune" && words[1] == "ground_friction")
+                            Gf.Value = decimal.Parse(words[2].Replace(".", ","));
+                        if (words[0] == "tune" && words[1] == "ground_jump_impulse")
+                            GjI.Value = decimal.Parse(words[2].Replace(".", ","));
+                        if (words[0] == "tune" && words[1] == "air_jump_impulse")
+                            AjI.Value = decimal.Parse(words[2].Replace(".", ","));
+                        if (words[0] == "tune" && words[1] == "air_control_speed")
+                            AcS.Value = decimal.Parse(words[2].Replace(".", ","));
+                        if (words[0] == "tune" && words[1] == "air_control_accel")
+                            AcA.Value = decimal.Parse(words[2].Replace(".", ","));
+                        if (words[0] == "tune" && words[1] == "air_friction")
+                            Af.Value = decimal.Parse(words[2].Replace(".", ","));
+                        if (words[0] == "tune" && words[1] == "hook_length")
+                            HL.Value = decimal.Parse(words[2].Replace(".", ","));
+                        if (words[0] == "tune" && words[1] == "hook_fire_speed")
+                            HfS.Value = decimal.Parse(words[2].Replace(".", ","));
+                        if (words[0] == "tune" && words[1] == "hook_drag_accel")
+                            HdA.Value = decimal.Parse(words[2].Replace(".", ","));
+                        if (words[0] == "tune" && words[1] == "hook_drag_speed")
+                            HdS.Value = decimal.Parse(words[2].Replace(".", ","));
+                        if (words[0] == "tune" && words[1] == "gravity")
+                            gravity.Value = decimal.Parse(words[2].Replace(".", ","));
+                        if (words[0] == "tune" && words[1] == "velramp_start")
+                            VrS.Value = decimal.Parse(words[2].Replace(".", ","));
+                        if (words[0] == "tune" && words[1] == "velramp_range")
+                            VrR.Value = decimal.Parse(words[2].Replace(".", ","));
+                        if (words[0] == "tune" && words[1] == "velramp_curvature")
+                            VrC.Value = decimal.Parse(words[2].Replace(".", ","));
                         if (words[0] == "tune" && words[1] == "player_collision")
                         {
                             if (int.Parse(words[2]) == 1) Collision.Checked = true;
@@ -753,20 +828,34 @@ namespace Teeworlds_Config_Creator
                             if (int.Parse(words[2]) == 1) Hooking.Checked = true;
                             else Hooking.Checked = false;
                         }
-                        if (words[0] == "tune" && words[1] == "gun_curvature") GunC.Value = decimal.Parse(words[2].Replace(".", ","));
-                        if (words[0] == "tune" && words[1] == "gun_speed") GunS.Value = decimal.Parse(words[2].Replace(".", ","));
-                        if (words[0] == "tune" && words[1] == "gun_lifetime") GunL.Value = decimal.Parse(words[2].Replace(".", ","));
-                        if (words[0] == "tune" && words[1] == "shotgun_curvature") ShotgunC.Value = decimal.Parse(words[2].Replace(".", ","));
-                        if (words[0] == "tune" && words[1] == "shotgun_speed") ShotgunS.Value = decimal.Parse(words[2].Replace(".", ","));
-                        if (words[0] == "tune" && words[1] == "shotgun_speeddiff") ShotgunDiff.Value = decimal.Parse(words[2].Replace(".", ","));
-                        if (words[0] == "tune" && words[1] == "shotgun_lifetime") ShotgunL.Value = decimal.Parse(words[2].Replace(".", ","));
-                        if (words[0] == "tune" && words[1] == "grenade_curvature") GrenadeC.Value = decimal.Parse(words[2].Replace(".", ","));
-                        if (words[0] == "tune" && words[1] == "grenade_speed") GrenadeS.Value = decimal.Parse(words[2].Replace(".", ","));
-                        if (words[0] == "tune" && words[1] == "grenade_lifetime") GrenadeL.Value = decimal.Parse(words[2].Replace(".", ","));
-                        if (words[0] == "tune" && words[1] == "laser_reach") LaserR.Value = decimal.Parse(words[2].Replace(".", ","));
-                        if (words[0] == "tune" && words[1] == "laser_bounce_delay") LaserBD.Value = decimal.Parse(words[2].Replace(".", ","));
-                        if (words[0] == "tune" && words[1] == "laser_bounce_num") LaserBN.Value = decimal.Parse(words[2].Replace(".", ","));
-                        if (words[0] == "tune" && words[1] == "laser_damage") LaserDmg.Value = decimal.Parse(words[2].Replace(".", ","));
+                        if (words[0] == "tune" && words[1] == "gun_curvature")
+                            GunC.Value = decimal.Parse(words[2].Replace(".", ","));
+                        if (words[0] == "tune" && words[1] == "gun_speed")
+                            GunS.Value = decimal.Parse(words[2].Replace(".", ","));
+                        if (words[0] == "tune" && words[1] == "gun_lifetime")
+                            GunL.Value = decimal.Parse(words[2].Replace(".", ","));
+                        if (words[0] == "tune" && words[1] == "shotgun_curvature")
+                            ShotgunC.Value = decimal.Parse(words[2].Replace(".", ","));
+                        if (words[0] == "tune" && words[1] == "shotgun_speed")
+                            ShotgunS.Value = decimal.Parse(words[2].Replace(".", ","));
+                        if (words[0] == "tune" && words[1] == "shotgun_speeddiff")
+                            ShotgunDiff.Value = decimal.Parse(words[2].Replace(".", ","));
+                        if (words[0] == "tune" && words[1] == "shotgun_lifetime")
+                            ShotgunL.Value = decimal.Parse(words[2].Replace(".", ","));
+                        if (words[0] == "tune" && words[1] == "grenade_curvature")
+                            GrenadeC.Value = decimal.Parse(words[2].Replace(".", ","));
+                        if (words[0] == "tune" && words[1] == "grenade_speed")
+                            GrenadeS.Value = decimal.Parse(words[2].Replace(".", ","));
+                        if (words[0] == "tune" && words[1] == "grenade_lifetime")
+                            GrenadeL.Value = decimal.Parse(words[2].Replace(".", ","));
+                        if (words[0] == "tune" && words[1] == "laser_reach")
+                            LaserR.Value = decimal.Parse(words[2].Replace(".", ","));
+                        if (words[0] == "tune" && words[1] == "laser_bounce_delay")
+                            LaserBD.Value = decimal.Parse(words[2].Replace(".", ","));
+                        if (words[0] == "tune" && words[1] == "laser_bounce_num")
+                            LaserBN.Value = decimal.Parse(words[2].Replace(".", ","));
+                        if (words[0] == "tune" && words[1] == "laser_damage")
+                            LaserDmg.Value = decimal.Parse(words[2].Replace(".", ","));
                         //Votes
                         if (words[0] == "add_vote") VoteForm.VoteList.Items.Add(Line);
                         //Extra Lines
@@ -792,7 +881,7 @@ namespace Teeworlds_Config_Creator
 
         private void GType_TextChanged(object sender, EventArgs e)
         {
-        	//Überprüfen ob Gametype = Instagib ist
+            //Überprüfen ob Gametype = Instagib ist
             if (GType.Text == "idm" || GType.Text == "itdm" || GType.Text == "ictf") groupBox6.Enabled = true;
             else groupBox6.Enabled = false;
             //Überprüfen ob Gametype = zcatch ist
@@ -817,19 +906,20 @@ namespace Teeworlds_Config_Creator
             if (GType.Text == "teeking") groupBox23.Enabled = true;
             else groupBox23.Enabled = false;
             //Überprüfen ob Gametype = WaterMod ist
-        	if(GType.Text == "dm" || GType.Text == "tdm" || GType.Text == "ctf" || GType.Text == "idm" || GType.Text == "itdm" || GType.Text == "ictf")
-        	{
-        		UseWater.Enabled = true;
-        		groupBox25.Enabled = true;
-        	}
-        	else
-        	{
-        		UseWater.Enabled = false;
-        		UseWater.Checked = false;
-        		groupBox25.Enabled = false;
-        	}
-        } 
-        
+            if (GType.Text == "dm" || GType.Text == "tdm" || GType.Text == "ctf" || GType.Text == "idm" ||
+                GType.Text == "itdm" || GType.Text == "ictf")
+            {
+                UseWater.Enabled = true;
+                groupBox25.Enabled = true;
+            }
+            else
+            {
+                UseWater.Enabled = false;
+                UseWater.Checked = false;
+                groupBox25.Enabled = false;
+            }
+        }
+
         private void renew1_Click(object sender, EventArgs e)
         {
             GcS.Value = 10;
@@ -1016,7 +1106,12 @@ namespace Teeworlds_Config_Creator
                 int lastindex = DealInactive.SelectedIndex;
                 DealInactive.Items.Clear();
                 DealInactive.DropDownWidth = 410;
-                string[] Option = new string[] { "Den Spieler zum Zuschauer machen.", "Falls ein Zuschauer Platz frei ist den Spieler zum Zuschauer machen sonst ihn kicken.", "Den Spieler kicken." };
+                var Option = new[]
+                    {
+                        "Den Spieler zum Zuschauer machen.",
+                        "Falls ein Zuschauer Platz frei ist den Spieler zum Zuschauer machen sonst ihn kicken.",
+                        "Den Spieler kicken."
+                    };
                 DealInactive.Items.AddRange(Option);
                 if (lastindex == -1) DealInactive.SelectedIndex = 0;
                 else DealInactive.SelectedIndex = lastindex;
@@ -1031,9 +1126,11 @@ namespace Teeworlds_Config_Creator
                 VoteForm.label2.Text = "Befehl";
                 VoteForm.toolTip1.ToolTipTitle = "Hilfe";
                 VoteForm.toolTip1.SetToolTip(VoteForm.Votename, "Hier die Beschreibung des Votes eingeben.");
-                VoteForm.toolTip1.SetToolTip(VoteForm.Cmd, "Hier den Befehl eingeben der ausgeführt werden soll, nachdem der Vote erfolgreich war.");
+                VoteForm.toolTip1.SetToolTip(VoteForm.Cmd,
+                                             "Hier den Befehl eingeben der ausgeführt werden soll, nachdem der Vote erfolgreich war.");
                 //AboutBox
-                InfoBox.textBoxDescription.Text = "Mit dem \"Teeworlds Config Creator\" kann man schnell und komfortabel eine Config-Datei für den eigenen Server erstellen.\r\nEmpfohlen für Anfänger oder für Erfahrene, welche schnell eine Config-Datei erstellen wollen.\r\n\r\nRiesen Dank an Felix \"DerHase\" K. für die Bilder und dem neuen Icon!";
+                InfoBox.textBoxDescription.Text =
+                    "Mit dem \"Teeworlds Config Creator\" kann man schnell und komfortabel eine Config-Datei für den eigenen Server erstellen.\r\nEmpfohlen für Anfänger oder für Erfahrene, welche schnell eine Config-Datei erstellen wollen.\r\n\r\nRiesen Dank an Felix \"DerHase\" K. für die Bilder und dem neuen Icon!";
                 //Updater
                 Updater.Text = "Auf Aktualisierung überprüfen!";
                 //Maprotation form
@@ -1043,68 +1140,97 @@ namespace Teeworlds_Config_Creator
                 //Allgemein
                 Allgemein.Text = "Standard";
                 toolTip1.ToolTipTitle = "Hilfe";
-                toolTip1.SetToolTip(OnlineRB, "Wenn \"Online\" ausgewählt ist, wird der Server im Internet sichtbar sein, solange der Port freigeschaltet ist.\nFalls der Port nicht freigeschaltet ist, suche bei google nach \"Port Forward\"");
-                toolTip1.SetToolTip(OfflineRB, "Wenn \"Offline\" ausgewählt ist, ist der Server nur im lokalem Netzwerk sichbar.");
+                toolTip1.SetToolTip(OnlineRB,
+                                    "Wenn \"Online\" ausgewählt ist, wird der Server im Internet sichtbar sein, solange der Port freigeschaltet ist.\nFalls der Port nicht freigeschaltet ist, suche bei google nach \"Port Forward\"");
+                toolTip1.SetToolTip(OfflineRB,
+                                    "Wenn \"Offline\" ausgewählt ist, ist der Server nur im lokalem Netzwerk sichbar.");
                 toolTip1.SetToolTip(Port, "Der Port auf dem der Server läuft.\nWichtig: Der Port muss frei sein!");
-                toolTip1.SetToolTip(highBand, "Schaltet den \"Breitband Modus\" ein, der die Internetgeschwindigkeit für Lan Server erhöht.\nWichtig: Funktioniert nur im Lan Modus!");
+                toolTip1.SetToolTip(highBand,
+                                    "Schaltet den \"Breitband Modus\" ein, der die Internetgeschwindigkeit für Lan Server erhöht.\nWichtig: Funktioniert nur im Lan Modus!");
                 toolTip1.SetToolTip(SerName, "Trage hier den Servernamen ein, der im Server Browser angezeigt wird.");
                 toolTip1.SetToolTip(MaxClients, "Anzahl der maximalen erlaubten Spieler auf dem Server.");
                 toolTip1.SetToolTip(MaxClientspIP, "Anzahl der maximalen erlaubten Spieler mit der selben IP-Adresse.");
                 toolTip1.SetToolTip(SpecSlots, "Anzahl der verfügbaren Pätze, für die Zuschauer.");
-                toolTip1.SetToolTip(Password, "Trage hier das Passwort ein, welches der Spieler eingeben muss, um auf dem Server drauf zu kommen.");
-                toolTip1.SetToolTip(RcPasswort, "Trage hier das Rcon Passwort ein, welches benötigt wird, um den Server zu verwalten, während man auf ihm drauf ist.");
-                toolTip1.SetToolTip(MaxRconTri, "Maximale Versuche um das richtige Rcon Passwort einzugeben.\nInfo: Falls man dies nicht schafft wird man für die angegebene Zeit gebannt!");
-                toolTip1.SetToolTip(RconBanTime, "Zeit in Minuten, wielange man für das Scheitern bei der Eingabe des Rcon Passwortes gebannt wird.");
-                toolTip1.SetToolTip(GType, "Wähle hier den Gametype aus.\nWichtig: Für die jeweiligen Teeworlds fremden Gametypen muss auch der benötigte Mod zur verfügung stehen!");
-                toolTip1.SetToolTip(TiLimit, "Zeitlimit in Minuten. Nachdem die Zeit um ist, wird die Runde beendet und eine neue beginnt.");
-                toolTip1.SetToolTip(ScLimit, "Wenn das Punktelimit erreicht ist, hat der Spieler gewonnen, der das Punktelimit erreicht hat.");
+                toolTip1.SetToolTip(Password,
+                                    "Trage hier das Passwort ein, welches der Spieler eingeben muss, um auf dem Server drauf zu kommen.");
+                toolTip1.SetToolTip(RcPasswort,
+                                    "Trage hier das Rcon Passwort ein, welches benötigt wird, um den Server zu verwalten, während man auf ihm drauf ist.");
+                toolTip1.SetToolTip(MaxRconTri,
+                                    "Maximale Versuche um das richtige Rcon Passwort einzugeben.\nInfo: Falls man dies nicht schafft wird man für die angegebene Zeit gebannt!");
+                toolTip1.SetToolTip(RconBanTime,
+                                    "Zeit in Minuten, wielange man für das Scheitern bei der Eingabe des Rcon Passwortes gebannt wird.");
+                toolTip1.SetToolTip(GType,
+                                    "Wähle hier den Gametype aus.\nWichtig: Für die jeweiligen Teeworlds fremden Gametypen muss auch der benötigte Mod zur verfügung stehen!");
+                toolTip1.SetToolTip(TiLimit,
+                                    "Zeitlimit in Minuten. Nachdem die Zeit um ist, wird die Runde beendet und eine neue beginnt.");
+                toolTip1.SetToolTip(ScLimit,
+                                    "Wenn das Punktelimit erreicht ist, hat der Spieler gewonnen, der das Punktelimit erreicht hat.");
                 toolTip1.SetToolTip(VoteOpen, "Hier kannst du alle Votes verwalten.");
-                toolTip1.SetToolTip(CfgCreate, "Wenn du dir sicher bis, dass du alles fertig hast, dann erstelle die Config.");
-                toolTip1.SetToolTip(SpamProt, "\"Spam Protection\" sorgt dafür, das jeder Spieler nur ein paar Nachrichten pro Minute schreiben kann.");
+                toolTip1.SetToolTip(CfgCreate,
+                                    "Wenn du dir sicher bis, dass du alles fertig hast, dann erstelle die Config.");
+                toolTip1.SetToolTip(SpamProt,
+                                    "\"Spam Protection\" sorgt dafür, das jeder Spieler nur ein paar Nachrichten pro Minute schreiben kann.");
                 toolTip1.SetToolTip(TeamDmg, "Sollen die Teamkamerraden durch Freundesbeschuss verletzt werden?");
-                toolTip1.SetToolTip(VoteKick, "\"Vote Kick\" erlaubt es Spieler über einem Vote von dem Server zu kicken.");
+                toolTip1.SetToolTip(VoteKick,
+                                    "\"Vote Kick\" erlaubt es Spieler über einem Vote von dem Server zu kicken.");
                 toolTip1.SetToolTip(VoteKickTime, "Zeit in Minuten, wielange man nach einem Vote Kick gebannt ist.");
                 toolTip1.SetToolTip(WarmupCheck, "Kann man sich Anfang einer Runde aufwärmen?");
                 toolTip1.SetToolTip(WarmupTime, "Zeit in Sekunden, indem man sich warm machen kann.");
                 toolTip1.SetToolTip(TeBaTiCheck, "Sollen die Teams ausbalanciert werden?");
                 toolTip1.SetToolTip(TeBaTi, "Zeit in Sekunden, nachdem die Teams ausbalanciert werden.");
-                toolTip1.SetToolTip(PowerUps, "Wenn dies aktiviert ist, werden Powerups wie z.B. Kantana (Ninja) verwendet.");
-                toolTip1.SetToolTip(Tournament, "Aktiviert den \"Tournament Modus\". Dadurch werden alle neuen Spieler automatisch zum Zuschauer gemacht.");
+                toolTip1.SetToolTip(PowerUps,
+                                    "Wenn dies aktiviert ist, werden Powerups wie z.B. Kantana (Ninja) verwendet.");
+                toolTip1.SetToolTip(Tournament,
+                                    "Aktiviert den \"Tournament Modus\". Dadurch werden alle neuen Spieler automatisch zum Zuschauer gemacht.");
                 toolTip1.SetToolTip(InactiveKT, "Zeit in Minuten, wielange man inaktiv bleiben darf.");
-                toolTip1.SetToolTip(DealInactive, "Was soll mit den inaktiven Spielern gemacht werden?\n0 = Den Spieler zum Zuschauer machen.\n1 = Falls ein Zuschauer Platz frei ist den Spieler zum Zuschauer machen sonst ihn vom Server kicken.\n2 = Den Spieler vom Server kicken.");
-                toolTip1.SetToolTip(Map, "Trage hier den Mapnamen ein, damit die Map vom Server geladen wird.\nWichtig: Die Map muss verfügbar sein, da der Server sonst nicht startet.");
-                toolTip1.SetToolTip(MapRot, "Trage hier die Maps ein, die beim Spielende geladen werden sollen.\nBeispiel: \"dm1 dm2 dm6\"");
+                toolTip1.SetToolTip(DealInactive,
+                                    "Was soll mit den inaktiven Spielern gemacht werden?\n0 = Den Spieler zum Zuschauer machen.\n1 = Falls ein Zuschauer Platz frei ist den Spieler zum Zuschauer machen sonst ihn vom Server kicken.\n2 = Den Spieler vom Server kicken.");
+                toolTip1.SetToolTip(Map,
+                                    "Trage hier den Mapnamen ein, damit die Map vom Server geladen wird.\nWichtig: Die Map muss verfügbar sein, da der Server sonst nicht startet.");
+                toolTip1.SetToolTip(MapRot,
+                                    "Trage hier die Maps ein, die beim Spielende geladen werden sollen.\nBeispiel: \"dm1 dm2 dm6\"");
                 toolTip1.SetToolTip(RoundsPmap, "Anzahl der Runden, die gespielt werden bis die Map gewechselt wird.");
-                toolTip1.SetToolTip(Motd, "\"Message Of The Day\" ist die Nachricht, die beim betreten des Servers und unter Serverinfo angezeigt wird.");
+                toolTip1.SetToolTip(Motd,
+                                    "\"Message Of The Day\" ist die Nachricht, die beim betreten des Servers und unter Serverinfo angezeigt wird.");
                 //Mods
                 ModsP1.Text = "Modifikationen - Seite 1";
                 groupbox27.Text = "Modifikationen - Seite 2";
                 //Insta
-                toolTip1.SetToolTip(FastKill, "Wenn dies aktiviert ist, dann spawnt man, nach einem Selbstmord, in 0.5 Sekunden erneut.");
-                toolTip1.SetToolTip(LaserJump, "Wenn dies aktiviert ist, kann man mit dem Laser, wie beim Granatenwerfer, springen.");
+                toolTip1.SetToolTip(FastKill,
+                                    "Wenn dies aktiviert ist, dann spawnt man, nach einem Selbstmord, in 0.5 Sekunden erneut.");
+                toolTip1.SetToolTip(LaserJump,
+                                    "Wenn dies aktiviert ist, kann man mit dem Laser, wie beim Granatenwerfer, springen.");
                 toolTip1.SetToolTip(ChatKill, "Wenn dies aktiviert ist, werden die Chatkiller im Chat angezeigt.");
-                toolTip1.SetToolTip(AntiBot, "Wenn dies aktiviert ist, werden alle Spieler mit \"[Bot]\" im Namen automatisch gebannt.");
+                toolTip1.SetToolTip(AntiBot,
+                                    "Wenn dies aktiviert ist, werden alle Spieler mit \"[Bot]\" im Namen automatisch gebannt.");
                 toolTip1.SetToolTip(InstaWartime, "Zeit in Sekunden, bevor der \"Krieg\" startet.");
                 toolTip1.SetToolTip(ResTime, "Zeit in Sekunden, bevor die Runde neu startet.");
                 toolTip1.SetToolTip(goTime, "Zeit in Sekunden, bevor das Spiel startet, nach einer Pause.");
                 toolTip1.SetToolTip(xonxFeat, "Aktiviert die \"XonX\" und \"Reset\" Eigenschaft.");
-                toolTip1.SetToolTip(leaveMuted, "Darf der Spieler den Server verlassen, wenn er stumm gestellt ist?\nWenn nein, wird der Spieler gebannt!");
+                toolTip1.SetToolTip(leaveMuted,
+                                    "Darf der Spieler den Server verlassen, wenn er stumm gestellt ist?\nWenn nein, wird der Spieler gebannt!");
                 toolTip1.SetToolTip(StoGoFeat, "Aktiviert die \"Stop und Go Chat\" Eigenschaft");
                 toolTip1.SetToolTip(RestartFeat, "Aktiviert die \"Restart\" Eigenschaft");
                 //zCatch
-                toolTip1.SetToolTip(zMode, "Bestimmt den (Waffen-)Modus von zCatch.\n1 = Instagib.\n2 = Raketen Arena.\n3 = Hammer Party.\n4 = Nur Granaten.\n5 = Ninja.");
+                toolTip1.SetToolTip(zMode,
+                                    "Bestimmt den (Waffen-)Modus von zCatch.\n1 = Instagib.\n2 = Raketen Arena.\n3 = Hammer Party.\n4 = Nur Granaten.\n5 = Ninja.");
                 int lastindex2 = zMode.SelectedIndex;
                 int lastindex3 = AJoin.SelectedIndex;
                 int lastindex4 = zCatchAC.SelectedIndex;
                 zMode.Items.Clear();
-                string[] Modes = { "Instagib", "Raketen Arena", "Hammer Party", "Nur Granaten", "Ninja" };
+                string[] Modes = {"Instagib", "Raketen Arena", "Hammer Party", "Nur Granaten", "Ninja"};
                 zMode.Items.AddRange(Modes);
-                toolTip1.SetToolTip(AJoin, "Setzt fest wie der Spieler dem jetztigen Spiel beitreten kann.\n1 = Erlaubt dem Spieler das Spiel zu betreten, ohne auf die nächste Runde zu warten.\n2 = Der Spieler betretet das Spiel, sobald der Spieler mit den meisten Kills stirbt.");
+                toolTip1.SetToolTip(AJoin,
+                                    "Setzt fest wie der Spieler dem jetztigen Spiel beitreten kann.\n1 = Erlaubt dem Spieler das Spiel zu betreten, ohne auf die nächste Runde zu warten.\n2 = Der Spieler betretet das Spiel, sobald der Spieler mit den meisten Kills stirbt.");
                 AJoin.Items.Clear();
                 AJoin.DropDownWidth = 390;
-                string[] Modes2 = { "Erlaubt dem Spieler das Spiel zu betreten, ohne auf die nächste Runde zu warten.", "Der Spieler betretet das Spiel, sobald der Spieler mit den meisten Kills stirbt." };
+                string[] Modes2 =
+                    {
+                        "Erlaubt dem Spieler das Spiel zu betreten, ohne auf die nächste Runde zu warten.",
+                        "Der Spieler betretet das Spiel, sobald der Spieler mit den meisten Kills stirbt."
+                    };
                 AJoin.Items.AddRange(Modes2);
-                string[] Modes3 = { "Deaktiviert", "In jedem Modus", "Nur in Instagib" };
+                string[] Modes3 = {"Deaktiviert", "In jedem Modus", "Nur in Instagib"};
                 zCatchAC.Items.Clear();
                 zCatchAC.Items.AddRange(Modes3);
                 if (lastindex2 == -1) zMode.SelectedIndex = 0;
@@ -1115,14 +1241,20 @@ namespace Teeworlds_Config_Creator
                 else zCatchAC.SelectedIndex = lastindex4;
                 toolTip1.SetToolTip(ColIndi, "Farbe des Tees passt sich je nach Anzahl der gefangenen Spieler an.");
                 toolTip1.SetToolTip(Bonus, "Bonuspunkte für den letzten Spieler.");
-                toolTip1.SetToolTip(zLaserJump, "Wenn dies aktiviert ist kann man mit dem Laser, wie beim Granatenwerfer, springen.");
+                toolTip1.SetToolTip(zLaserJump,
+                                    "Wenn dies aktiviert ist kann man mit dem Laser, wie beim Granatenwerfer, springen.");
                 toolTip1.SetToolTip(VoteFoRea, "Erlaubt nur Votes mit einem Grund.");
                 toolTip1.SetToolTip(SuicTime, "Minimale Zeit um sich selbst zu töten.\n0 = Selbstmord verbiten.");
-                toolTip1.SetToolTip(GreMinDmg, "Im \"Nur Granaten\" Modus, wie viel Schaden wird benötigt um den Gegner zu töten.");
-                toolTip1.SetToolTip(FollowCatcher, "Ein gefangener Spieler verfolgt den Fänger, wenn dies aktiviert ist.");
-                toolTip1.SetToolTip(zCatchAC, "In welchem Modus soll \"Anticamper\" aktiv sein?\n0 = Deaktiviert\n1 = In jedem Modus\n2 = Nur in Instagib");
-                toolTip1.SetToolTip(ACFreTi, "Zeit in Sekunden, wielange ein Camper eingefroren ist!\n0 = Den Camper töten");
-                toolTip1.SetToolTip(KillPena, "Anzahl der Punkte, die einem abgezogen werden, sobald man Selbstmord begeht.");
+                toolTip1.SetToolTip(GreMinDmg,
+                                    "Im \"Nur Granaten\" Modus, wie viel Schaden wird benötigt um den Gegner zu töten.");
+                toolTip1.SetToolTip(FollowCatcher,
+                                    "Ein gefangener Spieler verfolgt den Fänger, wenn dies aktiviert ist.");
+                toolTip1.SetToolTip(zCatchAC,
+                                    "In welchem Modus soll \"Anticamper\" aktiv sein?\n0 = Deaktiviert\n1 = In jedem Modus\n2 = Nur in Instagib");
+                toolTip1.SetToolTip(ACFreTi,
+                                    "Zeit in Sekunden, wielange ein Camper eingefroren ist!\n0 = Den Camper töten");
+                toolTip1.SetToolTip(KillPena,
+                                    "Anzahl der Punkte, die einem abgezogen werden, sobald man Selbstmord begeht.");
                 //Survival
                 toolTip1.SetToolTip(SurGiveArm, "Anzahl der Schilder, die der Spieler am Start hat.");
                 toolTip1.SetToolTip(SurGiveGren, "Anzahl der Munition für den Granatenwerfer.\n-1 = Unendlich");
@@ -1147,34 +1279,41 @@ namespace Teeworlds_Config_Creator
                 toolTip1.SetToolTip(InfectSupJum, "Benötigte Kills für einen Supersprung.");
                 toolTip1.SetToolTip(InfectSupJumFor, "Stärke des Supersprungs.");
                 toolTip1.SetToolTip(InfecZombExplo, "Zombie Explosion.\n0 = Aus\n1 = IZombie\n2 = Alle Zombies");
-                string[] modes4 = { "Aus", "IZombie", "Alle Zombies" };
+                string[] modes4 = {"Aus", "IZombie", "Alle Zombies"};
                 InfecZombExplo.Items.Clear();
                 InfecZombExplo.Items.AddRange(modes4);
                 if (lastindex5 == -1) InfecZombExplo.SelectedIndex = 1;
                 else InfecZombExplo.SelectedIndex = lastindex5;
-                toolTip1.SetToolTip(InfectAirText, "Angezeigter Text, wenn jemand einen Luftangriff bekommt.\n%s = Spielername");
-                toolTip1.SetToolTip(InfectSJT, "Angezeigter Text, wenn jemand einen Supersprung bekommt.\n%s = Spielername");
+                toolTip1.SetToolTip(InfectAirText,
+                                    "Angezeigter Text, wenn jemand einen Luftangriff bekommt.\n%s = Spielername");
+                toolTip1.SetToolTip(InfectSJT,
+                                    "Angezeigter Text, wenn jemand einen Supersprung bekommt.\n%s = Spielername");
                 //Foot/TeeBall
-                toolTip1.SetToolTip(FootBouLoss, "Der Ball verliert so viel Geschwindigkeit nach einem Sprung des Balls.");
+                toolTip1.SetToolTip(FootBouLoss,
+                                    "Der Ball verliert so viel Geschwindigkeit nach einem Sprung des Balls.");
                 toolTip1.SetToolTip(FootExplo, "Sollen die Granaten explodieren nach einem Tor?");
                 toolTip1.SetToolTip(FootSpaDel, "Spawn Verzögerung in Millisekunden für die Spieler, nach dem Tod.");
                 toolTip1.SetToolTip(FootBallResp, "Respawn-Zeit in Sekunden vom Ball.");
                 toolTip1.SetToolTip(FootScorDiff, "Unterschied zwischen den Team-Punkten bevor ein Team gewinnen kann.");
-                toolTip1.SetToolTip(FootDSDiff, "Unterschied zwischen den Team-Punkten bevor ein Team in \"Sudden Death\" gewinnen kann.");
+                toolTip1.SetToolTip(FootDSDiff,
+                                    "Unterschied zwischen den Team-Punkten bevor ein Team in \"Sudden Death\" gewinnen kann.");
                 toolTip1.SetToolTip(FootKeepTime, "Zeit in Sekunden, um den Ball zu halten.");
-                toolTip1.SetToolTip(FootHitKeepTime, "Wartezeit in Sekunden, nachdem man mit dem Hammer getroffen wurde.");
+                toolTip1.SetToolTip(FootHitKeepTime,
+                                    "Wartezeit in Sekunden, nachdem man mit dem Hammer getroffen wurde.");
                 toolTip1.SetToolTip(FootSelfkillScore, "Anzahl der Punkte, die für Selbstmord abgezogen werden.");
                 toolTip1.SetToolTip(FootRspwnTime, "Zeit in Sekunde, zum respawnen nach einem Selbstmord.");
                 toolTip1.SetToolTip(FootBasket, "Dunking und Basketball-Punktesystem an- oder ausschalten?");
                 toolTip1.SetToolTip(FootSelfkill, "Soll Selbstmord aktiviert oder deaktiviert sein?");
-                toolTip1.SetToolTip(FootGreStaSpe, "Wert für die Granatengeschwindigkeit, die an der eigenen Geschwindigkeit dazu kommt.");
+                toolTip1.SetToolTip(FootGreStaSpe,
+                                    "Wert für die Granatengeschwindigkeit, die an der eigenen Geschwindigkeit dazu kommt.");
                 toolTip1.SetToolTip(FootHookTeam, "Kann ihr Team gehookt werden?");
                 toolTip1.SetToolTip(FootHookKeep, "Kann der Torwart gehookt werden?");
                 toolTip1.SetToolTip(FootGoalKeep, "soll der Torwart aktiviert oder deaktiviert sein?");
                 toolTip1.SetToolTip(FootGoKeTi, "Zeit in Sekunden, wielange der Torwart den Ball halten darf.");
                 toolTip1.SetToolTip(FootReal, "Hammertreffer an oder aus?");
                 toolTip1.SetToolTip(FootKeJump, "Endloses springen für Torwarte?");
-                toolTip1.SetToolTip(FootGreDeath, "Soll man sterben, sobald man die Granate aufhebt?\nWichtig: Dies sollte nur aktiviert werden, wenn sie eine Tischtennis-Map spielen!");
+                toolTip1.SetToolTip(FootGreDeath,
+                                    "Soll man sterben, sobald man die Granate aufhebt?\nWichtig: Dies sollte nur aktiviert werden, wenn sie eine Tischtennis-Map spielen!");
                 //Race Deutsch
                 toolTip1.SetToolTip(RaceReSlots, "Anzahl der reservierten Plätze.");
                 toolTip1.SetToolTip(RaceInfAmmo, "Aktiviert oder deaktiviert unendlich Munition.");
@@ -1184,7 +1323,8 @@ namespace Teeworlds_Config_Creator
                 toolTip1.SetToolTip(RaceNoItems, "Entferne jedes Item von der Karte, falls dort welche sind.");
                 toolTip1.SetToolTip(RaceTele, "Aktiviert oder deaktiviert teleportation.");
                 toolTip1.SetToolTip(RaceTelGre, "Aktiviert oder deaktiviert teleportation von Granaten.");
-                toolTip1.SetToolTip(RaceTelKill, "Teleportiere jemanden der ihn killt.\n(Entschuldigung, aber ich weis nicht was diese Option macht.)");
+                toolTip1.SetToolTip(RaceTelKill,
+                                    "Teleportiere jemanden der ihn killt.\n(Entschuldigung, aber ich weis nicht was diese Option macht.)");
                 toolTip1.SetToolTip(RaceTelVelRes, "Nach teleportation die Geschwindigkeit zurücksetzen.");
                 toolTip1.SetToolTip(RaceDGAD, "Löscht Granaten, nachdem der Spieler starb.");
                 toolTip1.SetToolTip(RaceRoJuDmg, "Aktiviert oder deaktiviert \"Rocket jump\" Schaden.");
@@ -1194,7 +1334,8 @@ namespace Teeworlds_Config_Creator
                 toolTip1.SetToolTip(RaceScoreFold, "Ordner indem die Punkte-Dateien gespeichert werden.");
                 toolTip1.SetToolTip(RaceShowTimes, "Zeige die Zeit der anderen Spieler an.");
                 toolTip1.SetToolTip(RaceShowOthers, "Zeige andere Spieler an.");
-                toolTip1.SetToolTip(RaceLoadMapDef, "Lege die Einstellungen,welche in der Karte gescpeichert sind beim Mapchange/reload fest.");
+                toolTip1.SetToolTip(RaceLoadMapDef,
+                                    "Lege die Einstellungen,welche in der Karte gescpeichert sind beim Mapchange/reload fest.");
                 toolTip1.SetToolTip(RaceUseSQL, "Aktiviert SQL Datenbank anstatt einer Punkte-Datei.");
                 toolTip1.SetToolTip(RaceSqlPort, "SQL Benutzer.");
                 toolTip1.SetToolTip(RaceSqlUser, "SQL Passwort.");
@@ -1203,19 +1344,22 @@ namespace Teeworlds_Config_Creator
                 toolTip1.SetToolTip(RaceSqlDatabase, "SQL Datenbank Name.");
                 toolTip1.SetToolTip(RaceSqlPrefix, "SQL Datenbank tabellen prefix.");
                 //Teeking
-                string[] modes5 = { "Granatenwerfer", "Laser", "Granatenwerfer und Laser" };
+                string[] modes5 = {"Granatenwerfer", "Laser", "Granatenwerfer und Laser"};
                 int lastindex6 = TeekingStartWea.SelectedIndex;
                 TeekingStartWea.Items.Clear();
                 TeekingStartWea.Items.AddRange(modes5);
                 if (lastindex6 == -1) TeekingStartWea.SelectedIndex = 1;
                 else TeekingStartWea.SelectedIndex = lastindex6;
-                toolTip1.SetToolTip(TeekingStartWea, "Wähle aus welche Waffe benutzt werden kann.\n0 = Granatenwerfer.\n1 = Laser.\n2 = Granatenwerfer und Laser.");
+                toolTip1.SetToolTip(TeekingStartWea,
+                                    "Wähle aus welche Waffe benutzt werden kann.\n0 = Granatenwerfer.\n1 = Laser.\n2 = Granatenwerfer und Laser.");
                 toolTip1.SetToolTip(TeekingJumps, "Maximale Anzahl an Sprüngen für den König!\n-1 = unendlich.");
                 toolTip1.SetToolTip(TeekingKFirespeed, "Die Feuerrate des König.");
                 toolTip1.SetToolTip(TeekingTFirespeed, "Die Feuerrate der Tees.");
-                toolTip1.SetToolTip(TeekingImorTime, "Zeit der Unsterblichkeit für Spieler, die zehn Rüstung gesammelt haben.");
+                toolTip1.SetToolTip(TeekingImorTime,
+                                    "Zeit der Unsterblichkeit für Spieler, die zehn Rüstung gesammelt haben.");
                 toolTip1.SetToolTip(TeekingNofK, "Anzahl der Könige.\n-1 = jeder ist König.\n0 = \"LastKing\" Modus.");
-                toolTip1.SetToolTip(TeekingLKPrize, "Preis für den lezten König.\nFunktioniert nur im \"LastKing\" Modus.");
+                toolTip1.SetToolTip(TeekingLKPrize,
+                                    "Preis für den lezten König.\nFunktioniert nur im \"LastKing\" Modus.");
                 toolTip1.SetToolTip(TeekingKingPrize, "Preis für den König, der einen anderen König getötet hat.");
                 //WaterMOD
                 groupBox25.Text = "WaterMOD(Für TW 0.6)";
@@ -1224,15 +1368,17 @@ namespace Teeworlds_Config_Creator
                 toolTip1.SetToolTip(WModMaxX, "Max. Geschwindigkeit in x-Richtung im Wasser.");
                 toolTip1.SetToolTip(WModMaxY, "Max. Geschwindigkeit in y-Richtung im Wasser.");
                 toolTip1.SetToolTip(WModFrict, "Reibung im Wasser.");
-				toolTip1.SetToolTip(WModGain, "Hinzugefügen von Geschwindigkeit, wenn man im fließendem Wasser ist.");
-				toolTip1.SetToolTip(WModOxy, "Verwenden Sie Sauerstoff im Wasser.");
-				toolTip1.SetToolTip(WModOxyDeg, "Die Geschwindigkeit des Sauerstoffverlust im Wasser.\n50 = 1 Sekunde");
-				toolTip1.SetToolTip(WModOxyReg, "Die Geschwindigkeit der Sauerstoffaufnahme im Wasser.\n50 = 1 Sekunde");
-				toolTip1.SetToolTip(WModOxyEmoID, "Anzahl der Emotions, die wegen dem Schaden durch Sauerstoffmangel angezeigt werden.");
-				toolTip1.SetToolTip(WModReflection, "Laser vom Wasser abprallen lassen.");
+                toolTip1.SetToolTip(WModGain, "Hinzugefügen von Geschwindigkeit, wenn man im fließendem Wasser ist.");
+                toolTip1.SetToolTip(WModOxy, "Verwenden Sie Sauerstoff im Wasser.");
+                toolTip1.SetToolTip(WModOxyDeg, "Die Geschwindigkeit des Sauerstoffverlust im Wasser.\n50 = 1 Sekunde");
+                toolTip1.SetToolTip(WModOxyReg, "Die Geschwindigkeit der Sauerstoffaufnahme im Wasser.\n50 = 1 Sekunde");
+                toolTip1.SetToolTip(WModOxyEmoID,
+                                    "Anzahl der Emotions, die wegen dem Schaden durch Sauerstoffmangel angezeigt werden.");
+                toolTip1.SetToolTip(WModReflection, "Laser vom Wasser abprallen lassen.");
                 //Extra Lines
                 XtraLines.Text = "Extra Zeilen";
-                XtraLinesDescripton.Text = "Hier können sie eigene Befehle einfügen z.B. wenn TCC einen Mod nicht unterstützt.";
+                XtraLinesDescripton.Text =
+                    "Hier können sie eigene Befehle einfügen z.B. wenn TCC einen Mod nicht unterstützt.";
             }
             else if (s == "EN")
             {
@@ -1263,7 +1409,11 @@ namespace Teeworlds_Config_Creator
                 int lastindex = DealInactive.SelectedIndex;
                 DealInactive.Items.Clear();
                 DealInactive.DropDownWidth = 305;
-                string[] Option = new string[] { "Switch the player to spectators.", "If a spectator slot free, switch the player to spectators else kick.", "Kick the player." };
+                var Option = new[]
+                    {
+                        "Switch the player to spectators.",
+                        "If a spectator slot free, switch the player to spectators else kick.", "Kick the player."
+                    };
                 DealInactive.Items.AddRange(Option);
                 if (lastindex == -1) DealInactive.SelectedIndex = 0;
                 else DealInactive.SelectedIndex = lastindex;
@@ -1278,9 +1428,11 @@ namespace Teeworlds_Config_Creator
                 VoteForm.label2.Text = "Command";
                 VoteForm.toolTip1.ToolTipTitle = "Help";
                 VoteForm.toolTip1.SetToolTip(VoteForm.Votename, "Insert here the description of the Vote.");
-                VoteForm.toolTip1.SetToolTip(VoteForm.Cmd, "Insert here the command, which executed when the Vote was succesfully.");
+                VoteForm.toolTip1.SetToolTip(VoteForm.Cmd,
+                                             "Insert here the command, which executed when the Vote was succesfully.");
                 //AboutBox
-                InfoBox.textBoxDescription.Text = "With the Tool \"Teeworlds Config Creator\" you can create fast and easy a config-file for your own teeworlds server. Recommended for Newbies or experienced player there only want to create quickly a Config.\r\n\r\nBig Thanks to Felix \"DerHase\" K. for the Images and the new Icon.";
+                InfoBox.textBoxDescription.Text =
+                    "With the Tool \"Teeworlds Config Creator\" you can create fast and easy a config-file for your own teeworlds server. Recommended for Newbies or experienced player there only want to create quickly a Config.\r\n\r\nBig Thanks to Felix \"DerHase\" K. for the Images and the new Icon.";
                 //Updater
                 Updater.Text = "Check for Updates";
                 //Maprotation form
@@ -1290,24 +1442,35 @@ namespace Teeworlds_Config_Creator
                 //Allgemein
                 Allgemein.Text = "Default";
                 toolTip1.ToolTipTitle = "Help";
-                toolTip1.SetToolTip(OnlineRB, "If this set to \"Online\", is the server visible on the internet, until the port is forward.\nIf you don´t know how to forward a port search on Google: \"Port Forward\"!");
-                toolTip1.SetToolTip(OfflineRB, "If this set to \"Offline\", is the server only visible on the local network.");
+                toolTip1.SetToolTip(OnlineRB,
+                                    "If this set to \"Online\", is the server visible on the internet, until the port is forward.\nIf you don´t know how to forward a port search on Google: \"Port Forward\"!");
+                toolTip1.SetToolTip(OfflineRB,
+                                    "If this set to \"Offline\", is the server only visible on the local network.");
                 toolTip1.SetToolTip(Port, "Port which the server use.\nImportant: The Port must be free!");
-                toolTip1.SetToolTip(highBand, "Activate the \"High Brandwidth\" mode, which increase the internet speed for LAN Server.\nImportant: Works only in the Offline mode!");
-                toolTip1.SetToolTip(SerName, "Insert here the servername, which is visible for other players in the Server Browser.");
+                toolTip1.SetToolTip(highBand,
+                                    "Activate the \"High Brandwidth\" mode, which increase the internet speed for LAN Server.\nImportant: Works only in the Offline mode!");
+                toolTip1.SetToolTip(SerName,
+                                    "Insert here the servername, which is visible for other players in the Server Browser.");
                 toolTip1.SetToolTip(MaxClients, "Number of maximal allowed player on the server.");
                 toolTip1.SetToolTip(MaxClientspIP, "Number of allowed player with the same IP.");
                 toolTip1.SetToolTip(SpecSlots, "Number of aviable slots for spectators.");
-                toolTip1.SetToolTip(Password, "Insert here the passwort, which the client must enter to join the server.");
-                toolTip1.SetToolTip(RcPasswort, "Insert here the rconpasswort, wich used to manage the server, while you are on the server.");
-                toolTip1.SetToolTip(MaxRconTri, "Maximal tries to enter the correct rcon password.\nInfo: If someone didn´t got it, he get ban!");
-                toolTip1.SetToolTip(RconBanTime, "The time in minutes, how long someone get ban, because he enter the wrong rcon password.");
-                toolTip1.SetToolTip(GType, "Chose a gametype.\nImportant: For the gametype, which Teeworlds not know, you need the used server mod!");
-                toolTip1.SetToolTip(TiLimit, "Timelimit in minutes. Until the time is over, the round is over an a new round start.");
+                toolTip1.SetToolTip(Password,
+                                    "Insert here the passwort, which the client must enter to join the server.");
+                toolTip1.SetToolTip(RcPasswort,
+                                    "Insert here the rconpasswort, wich used to manage the server, while you are on the server.");
+                toolTip1.SetToolTip(MaxRconTri,
+                                    "Maximal tries to enter the correct rcon password.\nInfo: If someone didn´t got it, he get ban!");
+                toolTip1.SetToolTip(RconBanTime,
+                                    "The time in minutes, how long someone get ban, because he enter the wrong rcon password.");
+                toolTip1.SetToolTip(GType,
+                                    "Chose a gametype.\nImportant: For the gametype, which Teeworlds not know, you need the used server mod!");
+                toolTip1.SetToolTip(TiLimit,
+                                    "Timelimit in minutes. Until the time is over, the round is over an a new round start.");
                 toolTip1.SetToolTip(ScLimit, "If reach the scorelimit, the player win, who reach the scorelimit.");
                 toolTip1.SetToolTip(VoteOpen, "Manage the votes here.");
                 toolTip1.SetToolTip(CfgCreate, "Create the config with a klick");
-                toolTip1.SetToolTip(SpamProt, "Spam Protection makes, that other player only can write a few messages per minute.");
+                toolTip1.SetToolTip(SpamProt,
+                                    "Spam Protection makes, that other player only can write a few messages per minute.");
                 toolTip1.SetToolTip(TeamDmg, "Should player get damage by friendly fire?");
                 toolTip1.SetToolTip(VoteKick, "\"Vote Kick\" allow player to kick someone per vote.");
                 toolTip1.SetToolTip(VoteKickTime, "Time in minutes, how long someone banned for an vote kick");
@@ -1316,13 +1479,18 @@ namespace Teeworlds_Config_Creator
                 toolTip1.SetToolTip(TeBaTiCheck, "Should Teams get balanced.");
                 toolTip1.SetToolTip(TeBaTi, "Time in seconds, after Teams get balanced.");
                 toolTip1.SetToolTip(PowerUps, "If this activate, Powerups are used like a Kantana (Ninja).");
-                toolTip1.SetToolTip(Tournament, "Activate \"Tournament mode\". All new players were switch to the spectators.");
+                toolTip1.SetToolTip(Tournament,
+                                    "Activate \"Tournament mode\". All new players were switch to the spectators.");
                 toolTip1.SetToolTip(InactiveKT, "Time in minutes, how long someone allow to be inactive.");
-                toolTip1.SetToolTip(DealInactive, "How to deal with inactive players?\n0 = Switch the player to spectators.\n1 = If a spectator slot free, switch the player to spectators else kick.\n2 = Kick the player.");
-                toolTip1.SetToolTip(Map, "Insert the mapname here, which the server load.\nImportant: The map must be aviable, until the server doesn´t start.");
-                toolTip1.SetToolTip(MapRot, "Insert the mapnames here, wich the server load if a round ends.\nexample: \"dm1 dm2 dm6\"");
+                toolTip1.SetToolTip(DealInactive,
+                                    "How to deal with inactive players?\n0 = Switch the player to spectators.\n1 = If a spectator slot free, switch the player to spectators else kick.\n2 = Kick the player.");
+                toolTip1.SetToolTip(Map,
+                                    "Insert the mapname here, which the server load.\nImportant: The map must be aviable, until the server doesn´t start.");
+                toolTip1.SetToolTip(MapRot,
+                                    "Insert the mapnames here, wich the server load if a round ends.\nexample: \"dm1 dm2 dm6\"");
                 toolTip1.SetToolTip(RoundsPmap, "Number of rounds, which play per map.");
-                toolTip1.SetToolTip(Motd, "\"Message Of The Day\" is the message, which show by joining the server and server info.");
+                toolTip1.SetToolTip(Motd,
+                                    "\"Message Of The Day\" is the message, which show by joining the server and server info.");
                 //Mods
                 ModsP1.Text = "Mods - Page 1";
                 groupbox27.Text = "Mods - Page 2";
@@ -1335,23 +1503,30 @@ namespace Teeworlds_Config_Creator
                 toolTip1.SetToolTip(ResTime, "Time in seconds, before round restarts.");
                 toolTip1.SetToolTip(goTime, "Time in seconds, before game starts when paused.");
                 toolTip1.SetToolTip(xonxFeat, "Enable \"XonX and reset Chat\" features.");
-                toolTip1.SetToolTip(leaveMuted, "Can the player leave the Server muted? If not, he gets banned for the muted time!");
+                toolTip1.SetToolTip(leaveMuted,
+                                    "Can the player leave the Server muted? If not, he gets banned for the muted time!");
                 toolTip1.SetToolTip(StoGoFeat, "Enable \"stop and go chat\" features.");
                 toolTip1.SetToolTip(RestartFeat, "Enable \"restart Chat\" feature.");
                 //zCatch
-                toolTip1.SetToolTip(zMode, "Determines the mode (weapon) of zCatch.\n1 = Instagib.\n2 = Rocket area.\n3 = Hammerparty.\n4 = Grenade only.\n5 = Ninja.");
+                toolTip1.SetToolTip(zMode,
+                                    "Determines the mode (weapon) of zCatch.\n1 = Instagib.\n2 = Rocket area.\n3 = Hammerparty.\n4 = Grenade only.\n5 = Ninja.");
                 int lastindex2 = zMode.SelectedIndex;
                 int lastindex3 = AJoin.SelectedIndex;
                 int lastindex4 = zCatchAC.SelectedIndex;
                 zMode.Items.Clear();
-                string[] Modes = { "Instagib", "Rocket area", "Hammerparty", "Grenade only", "Ninja" };
+                string[] Modes = {"Instagib", "Rocket area", "Hammerparty", "Grenade only", "Ninja"};
                 zMode.Items.AddRange(Modes);
-                toolTip1.SetToolTip(AJoin, "Sets how the players can join in the current game.\n1 = Allow new players to join the game without need to wait for the next round.\n2 = The player will join when the player with the most kills dies.");
+                toolTip1.SetToolTip(AJoin,
+                                    "Sets how the players can join in the current game.\n1 = Allow new players to join the game without need to wait for the next round.\n2 = The player will join when the player with the most kills dies.");
                 AJoin.Items.Clear();
                 AJoin.DropDownWidth = 356;
-                string[] Modes2 = { "Allow new players to join the game without need to wait for the next round.", "The player will join when the player with the most kills dies." };
+                string[] Modes2 =
+                    {
+                        "Allow new players to join the game without need to wait for the next round.",
+                        "The player will join when the player with the most kills dies."
+                    };
                 AJoin.Items.AddRange(Modes2);
-                string[] Modes3 = { "Disable", "In all modes", "Only in Instagib (Riffle)" };
+                string[] Modes3 = {"Disable", "In all modes", "Only in Instagib (Riffle)"};
                 zCatchAC.Items.Clear();
                 zCatchAC.Items.AddRange(Modes3);
                 if (lastindex2 == -1) zMode.SelectedIndex = 0;
@@ -1367,8 +1542,10 @@ namespace Teeworlds_Config_Creator
                 toolTip1.SetToolTip(SuicTime, "Minimum of time to suicide.\n0 = restrict selfkill.");
                 toolTip1.SetToolTip(GreMinDmg, "In the \"Only Grenade\" mode, how much damage you need to kill a enemy.");
                 toolTip1.SetToolTip(FollowCatcher, "A catched player follow the Catcher if this activated.");
-                toolTip1.SetToolTip(zCatchAC, "In which mode should the \"Anticamper\" be active?\n0 = Disable\n1 = In all modes\n2 = Only in Instagib (Riffle)");
-                toolTip1.SetToolTip(ACFreTi, "Time in seconds, howlong the camper should be frezze!\n0 = Kill the camper");
+                toolTip1.SetToolTip(zCatchAC,
+                                    "In which mode should the \"Anticamper\" be active?\n0 = Disable\n1 = In all modes\n2 = Only in Instagib (Riffle)");
+                toolTip1.SetToolTip(ACFreTi,
+                                    "Time in seconds, howlong the camper should be frezze!\n0 = Kill the camper");
                 toolTip1.SetToolTip(KillPena, "Amount of points which the score will be decreased on each suicide.");
                 //Survival
                 toolTip1.SetToolTip(SurGiveArm, "Number of Armor, which the player have at start.");
@@ -1397,7 +1574,7 @@ namespace Teeworlds_Config_Creator
                 string[] modes4 = {"Off", "IZombie", "All Zombies"};
                 InfecZombExplo.Items.Clear();
                 InfecZombExplo.Items.AddRange(modes4);
-                if(lastindex5 == -1) InfecZombExplo.SelectedIndex = 1;
+                if (lastindex5 == -1) InfecZombExplo.SelectedIndex = 1;
                 else InfecZombExplo.SelectedIndex = lastindex5;
                 toolTip1.SetToolTip(InfectAirText, "Text send when someone earns an airstrike.\n%s = playername");
                 toolTip1.SetToolTip(InfectSJT, "Text send when someone earns superjump.\n%s = playername");
@@ -1407,7 +1584,8 @@ namespace Teeworlds_Config_Creator
                 toolTip1.SetToolTip(FootSpaDel, "Spawn delay in milliseconds for players after a kill.");
                 toolTip1.SetToolTip(FootBallResp, "Respawn time in seconds of the ball.");
                 toolTip1.SetToolTip(FootScorDiff, "Difference between the team-scores before a team can win.");
-                toolTip1.SetToolTip(FootDSDiff, "Difference between the team-scores before a team can win in sudden death.");
+                toolTip1.SetToolTip(FootDSDiff,
+                                    "Difference between the team-scores before a team can win in sudden death.");
                 toolTip1.SetToolTip(FootKeepTime, "Time in seconds to hold the ball.");
                 toolTip1.SetToolTip(FootHitKeepTime, "Keep time in seconds after you have hit with hammer.");
                 toolTip1.SetToolTip(FootSelfkillScore, "Negative score for selfkill.");
@@ -1421,7 +1599,8 @@ namespace Teeworlds_Config_Creator
                 toolTip1.SetToolTip(FootGoKeTi, "Keeptime in seconds for goalkeepers.");
                 toolTip1.SetToolTip(FootReal, "Hammerhits on or off?");
                 toolTip1.SetToolTip(FootKeJump, "Endless jumping for goalkeepers?");
-                toolTip1.SetToolTip(FootGreDeath, "Die on grenadepickup?\nImportant: Only activate this for a tabletennis map!");
+                toolTip1.SetToolTip(FootGreDeath,
+                                    "Die on grenadepickup?\nImportant: Only activate this for a tabletennis map!");
                 //Race
                 toolTip1.SetToolTip(RaceReSlots, "Number of reserved slots.");
                 toolTip1.SetToolTip(RaceInfAmmo, "Enable or disable infinite ammo.");
@@ -1450,13 +1629,14 @@ namespace Teeworlds_Config_Creator
                 toolTip1.SetToolTip(RaceSqlDatabase, "SQL Database name.");
                 toolTip1.SetToolTip(RaceSqlPrefix, "SQL Database table prefix.");
                 //Teeking
-                string[] modes5 = { "Grenades", "Rifle", "Grenades and Rifle" };
+                string[] modes5 = {"Grenades", "Rifle", "Grenades and Rifle"};
                 int lastindex6 = TeekingStartWea.SelectedIndex;
                 TeekingStartWea.Items.Clear();
                 TeekingStartWea.Items.AddRange(modes5);
                 if (lastindex6 == -1) TeekingStartWea.SelectedIndex = 1;
                 else TeekingStartWea.SelectedIndex = lastindex6;
-                toolTip1.SetToolTip(TeekingStartWea, "Chose which weapon can be used.\n0 = Grenades.\n1 = Rifle.\n2 = Grenades and Rifle.");
+                toolTip1.SetToolTip(TeekingStartWea,
+                                    "Chose which weapon can be used.\n0 = Grenades.\n1 = Rifle.\n2 = Grenades and Rifle.");
                 toolTip1.SetToolTip(TeekingJumps, "Max number of jumps for king!\n-1 = infinitive.");
                 toolTip1.SetToolTip(TeekingKFirespeed, "The firespeed of the King.");
                 toolTip1.SetToolTip(TeekingTFirespeed, "The firespeed of the Tees.");
@@ -1471,12 +1651,12 @@ namespace Teeworlds_Config_Creator
                 toolTip1.SetToolTip(WModMaxX, "Max. velocity in x direction when in water.");
                 toolTip1.SetToolTip(WModMaxY, "Max. velocity in Y direction when in water.");
                 toolTip1.SetToolTip(WModFrict, "Friction in water.");
-				toolTip1.SetToolTip(WModGain, "Added speed if in flowing water.");
-				toolTip1.SetToolTip(WModOxy, "Use oxygen in water.");
-				toolTip1.SetToolTip(WModOxyDeg, "Speed of oxygen degeneration in water.\n50 = 1sec");
-				toolTip1.SetToolTip(WModOxyReg, "Speed of oxygen regeneration out of water.\n50 = 1sec");
-				toolTip1.SetToolTip(WModOxyEmoID, "Number of emote to show when getting damage due to oxygen.");
-				toolTip1.SetToolTip(WModReflection, "Reflect lasers at water.");
+                toolTip1.SetToolTip(WModGain, "Added speed if in flowing water.");
+                toolTip1.SetToolTip(WModOxy, "Use oxygen in water.");
+                toolTip1.SetToolTip(WModOxyDeg, "Speed of oxygen degeneration in water.\n50 = 1sec");
+                toolTip1.SetToolTip(WModOxyReg, "Speed of oxygen regeneration out of water.\n50 = 1sec");
+                toolTip1.SetToolTip(WModOxyEmoID, "Number of emote to show when getting damage due to oxygen.");
+                toolTip1.SetToolTip(WModReflection, "Reflect lasers at water.");
                 //Extra Lines
                 XtraLines.Text = "Extra Lines";
                 XtraLinesDescripton.Text = "If TCC don´t support a mod then you can add here your own config lines.";
@@ -1501,7 +1681,7 @@ namespace Teeworlds_Config_Creator
 
         private void UpdaterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-        	Updater.ShowDialog();
+            Updater.ShowDialog();
         }
 
         private void TCC_FormClosing(object sender, FormClosingEventArgs e)
@@ -1524,7 +1704,7 @@ namespace Teeworlds_Config_Creator
 
         private void zMode_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(zMode.SelectedIndex == 3) GreMinDmg.Enabled = true;
+            if (zMode.SelectedIndex == 3) GreMinDmg.Enabled = true;
             else GreMinDmg.Enabled = false;
         }
 
@@ -1563,7 +1743,7 @@ namespace Teeworlds_Config_Creator
             MapRotForm.SelectMap.Items.Clear();
             if (Directory.Exists(Properties.Settings.Default.TWFolder + @"\data\maps"))
             {
-                DirectoryInfo dirInfo = new DirectoryInfo(Properties.Settings.Default.TWFolder + @"\data\maps");
+                var dirInfo = new DirectoryInfo(Properties.Settings.Default.TWFolder + @"\data\maps");
                 FileInfo[] files = dirInfo.GetFiles();
                 foreach (FileInfo fiOutput in files)
                 {
@@ -1576,9 +1756,13 @@ namespace Teeworlds_Config_Creator
             }
             if (Properties.Settings.Default.LoadAppdataMaps)
             {
-                if (Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Teeworlds\maps"))
+                if (
+                    Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
+                                     @"\Teeworlds\maps"))
                 {
-                    DirectoryInfo dirInfo = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Teeworlds\maps");
+                    var dirInfo =
+                        new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
+                                          @"\Teeworlds\maps");
                     FileInfo[] Appdatafiles = dirInfo.GetFiles();
                     foreach (FileInfo fiOutput in Appdatafiles)
                     {
@@ -1659,34 +1843,36 @@ namespace Teeworlds_Config_Creator
                 TeekingKingPrize.Enabled = false;
             }
         }
-        
-        void UseWaterCheckedChanged(object sender, EventArgs e)
+
+        private void UseWaterCheckedChanged(object sender, EventArgs e)
         {
-        	if(UseWater.Checked == true)
-        	{
-	        	groupBox26.Enabled = true;
-        		groupBox6.Enabled = false;
-        	}
-        	else if(UseWater.Checked == false && GType.Text == "idm" || GType.Text == "itdm" || GType.Text == "ictf")
-        	{
-	        	groupBox26.Enabled = false;
-        		groupBox6.Enabled = true;
-        	}
-        	else
-        	{
-        		groupBox26.Enabled = false;
-        		groupBox6.Enabled = false;
-        	}
+            if (UseWater.Checked)
+            {
+                groupBox26.Enabled = true;
+                groupBox6.Enabled = false;
+            }
+            else if (UseWater.Checked == false && GType.Text == "idm" || GType.Text == "itdm" || GType.Text == "ictf")
+            {
+                groupBox26.Enabled = false;
+                groupBox6.Enabled = true;
+            }
+            else
+            {
+                groupBox26.Enabled = false;
+                groupBox6.Enabled = false;
+            }
         }
 
         private void startServerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string Serverfile = Properties.Settings.Default.TWFolder + "\\" + Properties.Settings.Default.ServerEXE;
             string Serverparameter = "-f " + CurrentFile;
-            if (File.Exists(Serverfile)) System.Diagnostics.Process.Start(Serverfile, Serverparameter);
+            if (File.Exists(Serverfile)) Process.Start(Serverfile, Serverparameter);
             else
             {
-                if (Properties.Settings.Default.Lang == "DE") MessageBox.Show("Server-Datei nicht vorhanden!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (Properties.Settings.Default.Lang == "DE")
+                    MessageBox.Show("Server-Datei nicht vorhanden!", "Fehler", MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
                 else MessageBox.Show("Server-file doesn´t exist!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -1694,11 +1880,15 @@ namespace Teeworlds_Config_Creator
         private void startTeeworldsClientToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string TeeworldsClientEXE = Properties.Settings.Default.TWFolder + "\\teeworlds.exe";
-            if (File.Exists(TeeworldsClientEXE)) System.Diagnostics.Process.Start(TeeworldsClientEXE);
+            if (File.Exists(TeeworldsClientEXE)) Process.Start(TeeworldsClientEXE);
             else
             {
-                if (Properties.Settings.Default.Lang == "DE") MessageBox.Show("Teeworlds Client ist nicht vorhanden!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else MessageBox.Show("Teeworlds client doesn´t exist!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (Properties.Settings.Default.Lang == "DE")
+                    MessageBox.Show("Teeworlds Client ist nicht vorhanden!", "Fehler", MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                else
+                    MessageBox.Show("Teeworlds client doesn´t exist!", "Error", MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
             }
         }
     }

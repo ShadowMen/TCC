@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Teeworlds_Config_Creator
@@ -45,8 +46,8 @@ namespace Teeworlds_Config_Creator
 
         private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
-            System.IO.Stream stream = saveFileDialog1.OpenFile();
-            System.IO.StreamWriter writer = new System.IO.StreamWriter(stream);
+            Stream stream = saveFileDialog1.OpenFile();
+            var writer = new StreamWriter(stream);
             writer.Write(Output.Text);
             writer.Close();
             stream.Close();
