@@ -11,7 +11,7 @@ namespace Teeworlds_Config_Creator
             InitializeComponent();
             this.Text = String.Format("About {0}", Application.ProductName);
             this.labelProductName.Text = Application.ProductName;
-            this.labelVersion.Text = String.Format("{0}.{1}_1 (Build {2})", Version.Major, Version.Minor, Version.Build);
+            this.labelVersion.Text = String.Format("{0}.{1}_2 (Build {2})", Version.Major, Version.Minor, Version.Build);
             this.labelCopyright.Text = "Copyright © 2011-2013 Nils Helmig";
             this.labelCompanyName.Text = Application.CompanyName;
         }

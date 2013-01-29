@@ -21,7 +21,11 @@ namespace Teeworlds_Config_Creator
             {
                 if (CommandLineArgs[1] == "-delete")
                 {
-                    if (File.Exists(CommandLineArgs[2])) File.Delete(CommandLineArgs[2]);
+                    if (File.Exists(CommandLineArgs[2]))
+                    {
+                        System.Threading.Thread.Sleep(5000);
+                        File.Delete(CommandLineArgs[2]);
+                    }
                 }
             }
             Application.Run(new TCC());
