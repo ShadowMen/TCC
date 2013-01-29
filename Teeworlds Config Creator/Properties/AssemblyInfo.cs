@@ -11,7 +11,7 @@ using System.Resources;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Shadow Software")]
 [assembly: AssemblyProduct("Teeworlds Config Creator")]
-[assembly: AssemblyCopyright("Copyright © 2011-2013 Nils Helmig")]
+[assembly: AssemblyCopyright("Copyright © 2011-2012 Nils Helmig")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -34,5 +34,5 @@ using System.Resources;
 // übernehmen, indem Sie "*" eingeben:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.5.*")]
-[assembly: AssemblyFileVersion("1.5.2.0")]
+[assembly: AssemblyFileVersion("1.5.1.0")]
 [assembly: NeutralResourcesLanguageAttribute("")]
